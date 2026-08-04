@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="EMIDÊ">
+  <rect width="64" height="64" fill="#1D1D1B"/>
+  <text x="32" y="42" font-family="Georgia, serif" font-size="30" font-weight="400"
+        letter-spacing="1" text-anchor="middle" fill="#FFFFFF">E</text>
+  <circle cx="49" cy="44" r="3.2" fill="#D5A72C"/>
+</svg>

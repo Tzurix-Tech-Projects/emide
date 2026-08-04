@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cor do anel de foco. As seções escuras trocam por .on-dark para
+       manter contraste do anel contra o fundo nos dois casos. */
+    --focus-ring: theme(colors.gold.dark);
+  }
+  .on-dark {
+    --focus-ring: theme(colors.gold.light);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-charcoal font-sans font-light antialiased;
+    line-height: 1.8;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    /* O HTML do servidor já sai com opacity:0 inline, e useReducedMotion é
+       false no SSR. Revelar aqui garante o conteúdo visível antes de qualquer
+       JavaScript rodar. */
+    [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto max-w-container px-6 md:px-8;
+  }
+
+  /* Três degraus de respiro vertical para as seções alternarem ritmo
+     em vez de repetirem o mesmo espaçamento na página inteira. */
+  .section-tight {
+    @apply py-20 md:py-24;
+  }
+  .section {
+    @apply py-24 md:py-32;
+  }
+  .section-wide {
+    @apply py-28 md:py-44;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.25em] text-forest font-normal;
+  }
+  .on-dark .eyebrow {
+    @apply text-gold-light;
+  }
+
+  .btn {
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2.5 rounded-sm px-8 py-3 text-xs uppercase
+           tracking-[0.15em] font-normal transition-all duration-300 ease-smooth
+           active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply bg-forest text-paper hover:bg-charcoal;
+  }
+  .btn-outline {
+    @apply border border-forest text-forest hover:bg-forest hover:text-paper;
+  }
+  .on-dark .btn-primary {
+    @apply bg-gold-light text-charcoal hover:bg-paper;
+  }
+  .on-dark .btn-outline {
+    @apply border-gold-light text-gold-light hover:bg-gold-light hover:text-charcoal;
+  }
+  .btn-ghost {
+    @apply border-b border-charcoal pb-1 hover:text-forest hover:border-forest;
+  }
+
+  .field {
+    @apply min-h-11 w-full rounded-sm border border-line bg-paper px-3 py-2.5 text-base
+           text-charcoal transition-colors placeholder:text-ink/70 focus:border-forest;
+  }
+  .field-label {
+    @apply mb-1.5 block text-xs uppercase tracking-[0.12em] text-ink;
+  }
+
+  /* Só aparece quando recebe foco pelo teclado. */
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] flex min-h-11 -translate-y-24 items-center rounded-sm bg-forest px-5 py-3
+           text-xs uppercase tracking-[0.15em] text-paper transition-transform
+           focus:translate-y-0;
+  }
+}
+
+/* Fundo neutro no lugar da foto enquanto o produto não tem imagem. */
+.photo-fallback {
+  background: linear-gradient(135deg, #e6d14c 0%, #d5a72c 48%, #ab7311 100%);
+}
