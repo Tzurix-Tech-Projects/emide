@@ -57,7 +57,7 @@ export default function AdminOrdersPage() {
 
   return (
     <div>
-      <h1 className="mb-8 text-3xl font-light">Pedidos</h1>
+      <h1 className="mb-8 text-3xl font-normal">Pedidos</h1>
 
       {orders.length === 0 ? (
         <p className="py-16 text-center text-ink">
@@ -131,7 +131,7 @@ export default function AdminOrdersPage() {
                 <span className="uppercase tracking-[0.12em] text-ink">
                   Subtotal
                 </span>
-                <span className="font-display text-base">
+                <span className="font-sans text-base">
                   {money(order.subtotal)}
                 </span>
               </div>

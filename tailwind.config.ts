@@ -20,15 +20,20 @@ const config: Config = {
         },
         paper: "#FFFFFF",
         mist: "#F5F4F1",
-        line: "#E2E0DA",
-        ink: "#4A4A46",
+        line: "#D7D4CC",
+        ink: "#3F3F3B",
       },
       fontFamily: {
-        // Hermione (display) e Articulat CF Light (interface) entram por variável
-        // quando os arquivos licenciados existirem. Ver app/fonts.ts.
-        display: ["var(--font-hermione, Hermione)", "Georgia", "serif"],
+        // Hermione só é aplicada a palavras sem acento por BrandText.
+        display: [
+          "var(--font-hermione)",
+          "var(--font-articulat)",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
         sans: [
-          "var(--font-articulat, 'Articulat CF')",
+          "var(--font-articulat)",
           "Helvetica Neue",
           "Arial",
           "sans-serif",

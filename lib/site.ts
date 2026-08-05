@@ -16,5 +16,18 @@ export const INSTAGRAM_URL = "https://www.instagram.com/emide.oficial/";
 
 export const CONTACT_EMAIL = "contato@emide.com.br";
 
+export const CONTACT_PHONES = [
+  { display: "(13) 99150-4516", international: "5513991504516" },
+  { display: "(13) 99167-5615", international: "5513991675615" },
+] as const;
+
+export const CONTACT_ADDRESS = {
+  street: "Av. Bernardino de Campos, 18 — Sala 408",
+  district: "Vila Belmiro",
+  city: "Santos",
+  state: "SP",
+  postalCountry: "BR",
+} as const;
+
 export const siteDescription =
-  "Difusores, home sprays e linha lavabo da EMIDÊ, além de aromatização profissional por nebulização para hotéis, clínicas e escritórios. Pedido pelo WhatsApp.";
+  "Criação de identidades olfativas, fragrâncias exclusivas, aromatização profissional e produtos personalizados para empresas, marcas e residências.";

@@ -1,4 +1,5 @@
 import { supabase } from "./supabase";
+import { PRODUCT_IMAGES } from "./product-images";
 
 export type Category = "difusores" | "sprays" | "lavabo" | "profissional";
 
@@ -13,6 +14,7 @@ export type Product = {
   description: string;
   mode: "buy" | "quote"; // quote = não entra no carrinho, abre proposta
   image: string;
+  images: string[];
 };
 
 export const CATEGORIES: { id: Category; label: string; blurb: string }[] = [
@@ -63,6 +65,9 @@ type ProductRow = {
 };
 
 function mapProduct(row: ProductRow): Product {
+  const curated = PRODUCT_IMAGES[row.slug];
+  const image = curated?.cover ?? row.image_url;
+
   return {
     id: row.id,
     slug: row.slug,
@@ -73,7 +78,8 @@ function mapProduct(row: ProductRow): Product {
     sizes: row.sizes.length > 0 ? row.sizes : undefined,
     description: row.description,
     mode: row.mode,
-    image: row.image_url,
+    image,
+    images: curated ? [curated.cover, ...curated.gallery] : [image],
   };
 }
 

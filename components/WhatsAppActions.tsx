@@ -8,8 +8,14 @@ import {
   buildContactUrl,
 } from "@/lib/whatsapp";
 
+type ActionButtonProps = {
+  label?: string;
+};
+
 /** Abre o WhatsApp com o briefing de aromatização profissional pré-preenchido. */
-export function B2BQuoteButton() {
+export function B2BQuoteButton({
+  label = "Solicitar proposta",
+}: ActionButtonProps = {}) {
   if (!HAS_WHATSAPP_NUMBER) {
     return (
       <a
@@ -19,7 +25,7 @@ export function B2BQuoteButton() {
         className="btn btn-primary"
       >
         <InstagramLogo size={18} weight="light" aria-hidden="true" />
-        Falar pelo Instagram
+        {label}
       </a>
     );
   }
@@ -32,12 +38,12 @@ export function B2BQuoteButton() {
       className="btn btn-primary"
     >
       <WhatsappLogo size={18} weight="fill" aria-hidden="true" />
-      Solicitar proposta
+      {label}
     </a>
   );
 }
 
-export function ContactButton() {
+export function ContactButton({ label = "Falar no WhatsApp" }: ActionButtonProps = {}) {
   if (!HAS_WHATSAPP_NUMBER) {
     return (
       <a
@@ -47,7 +53,7 @@ export function ContactButton() {
         className="btn btn-primary"
       >
         <InstagramLogo size={18} weight="light" aria-hidden="true" />
-        Falar pelo Instagram
+        {label}
       </a>
     );
   }
@@ -60,7 +66,7 @@ export function ContactButton() {
       className="btn btn-primary"
     >
       <WhatsappLogo size={18} weight="fill" aria-hidden="true" />
-      Falar no WhatsApp
+      {label}
     </a>
   );
 }

@@ -1,16 +1,18 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
 import { X, Minus, Plus, WhatsappLogo } from "@phosphor-icons/react";
 import { useCart, type CartLine } from "@/lib/cart";
 import { buildOrderUrl, money } from "@/lib/whatsapp";
 import { createOrder, type CustomerInfo } from "@/lib/orders";
+import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
+import { BrandText } from "@/components/BrandText";
 
 export function CartDrawer() {
   const { isOpen, close, lines, subtotal, setQty, remove } = useCart();
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useHydratedReducedMotion();
   const panelRef = useRef<HTMLElement>(null);
   const titleId = useId();
 
@@ -91,7 +93,7 @@ export function CartDrawer() {
           >
             <div className="flex items-center justify-between border-b border-line px-8 py-8">
               <h2 id={titleId} className="text-xl">
-                Seu carrinho
+                <BrandText>Seu carrinho</BrandText>
               </h2>
               <button onClick={close} aria-label="Fechar carrinho">
                 <X size={22} weight="light" aria-hidden="true" />
@@ -101,7 +103,7 @@ export function CartDrawer() {
             <div className="flex-1 overflow-y-auto px-8">
               {lines.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-24 text-center text-ink">
-                  <span className="mb-2 font-display text-xl text-forest">
+                  <span className="mb-2 font-sans text-xl text-forest">
                     Seu carrinho está vazio
                   </span>
                   <span className="text-sm">
@@ -120,7 +122,9 @@ export function CartDrawer() {
                         aria-hidden="true"
                       />
                       <div className="flex-1">
-                        <h3 className="font-display text-base">{line.name}</h3>
+                        <h3 className="text-base">
+                          <BrandText>{line.name}</BrandText>
+                        </h3>
                         <p className="text-xs text-ink">{line.variant}</p>
                         <p className="mt-1.5 text-sm">
                           {money((line.price ?? 0) * line.qty)}
@@ -145,7 +149,7 @@ export function CartDrawer() {
                         <button
                           onClick={() => remove(line.slug)}
                           aria-label={`Remover ${line.name} do carrinho`}
-                          className="mt-2 block text-[11px] uppercase tracking-[0.1em] text-ink hover:text-gold-dark"
+                          className="mt-2 block text-[11px] uppercase tracking-[0.1em] text-ink hover:text-forest"
                         >
                           Remover
                         </button>
@@ -159,7 +163,7 @@ export function CartDrawer() {
             <div className="border-t border-line px-8 py-7">
               <div className="mb-4 flex justify-between text-base">
                 <span>Subtotal</span>
-                <span className="font-display text-xl">{money(subtotal)}</span>
+                <span className="font-sans text-xl">{money(subtotal)}</span>
               </div>
 
               {lines.length > 0 && (
@@ -203,7 +207,7 @@ export function CartDrawer() {
               )}
 
               {orderNotRegistered && (
-                <p role="status" className="mb-4 text-xs text-gold-dark">
+                <p role="status" className="mb-4 text-xs text-forest">
                   Não conseguimos registrar o pedido aqui, mas ele continua válido
                   pelo WhatsApp.
                 </p>

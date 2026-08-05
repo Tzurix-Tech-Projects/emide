@@ -12,10 +12,21 @@ com `NEXT_PUBLIC_STORE_ENABLED=true` em um projeto Vercel exclusivo da marca.
 
 ## Dependências do cliente
 
-- [ ] Fornecer os arquivos licenciados Hermione e Articulat CF Light em WOFF2.
-- [ ] Confirmar o número oficial do WhatsApp em formato DDI + DDD + número.
-- [ ] Confirmar e-mail, Instagram, razão social, CNPJ e endereço comercial.
+- [x] Confirmar o uso da `HERMIONE-DEMO` fornecida, limitada a A-Z. Em
+      04/08/2026 foi aprovado o uso em títulos em caixa alta, com Articulat CF
+      Light nos caracteres acentuados que não existem no arquivo.
+- [x] Confirmar os números oficiais de WhatsApp. O conteúdo entregue em
+      04/08/2026 informa `(13) 99150-4516` e `(13) 99167-5615`.
+- [x] Confirmar o endereço comercial informado no conteúdo: Av. Bernardino de
+      Campos, 18 — Sala 408, Vila Belmiro, Santos/SP.
+- [ ] Confirmar e-mail, Instagram, razão social e CNPJ.
 - [ ] Aprovar todas as afirmações comerciais e técnicas da home, FAQ e produtos.
+- [ ] Aprovar os textos dos cases Doin Motors, Clinvet Hospital Veterinário e
+      Michael Kors, incluindo autorização para citar as marcas.
+- [ ] Entregar os logos oficiais e autorizações das empresas que poderão compor
+      a grade de prova social. Não publicar logos simulados.
+- [ ] Entregar fontes verificáveis para os percentuais de 40%, 84% e 30%
+      sugeridos no conteúdo. Até lá, manter apenas benefícios qualitativos.
 - [x] Entregar fotografias para a home institucional; curadoria do lançamento
       salva em `public/images/institucional/`.
 - [ ] Aprovar a seleção final de fotografias por SKU para o catálogo da loja.
@@ -25,13 +36,28 @@ com `NEXT_PUBLIC_STORE_ENABLED=true` em um projeto Vercel exclusivo da marca.
 
 ### Trabalho
 
-- [ ] Instalar Hermione e Articulat CF Light com `next/font/local`.
-- [ ] Gerar favicon e ícones sociais a partir do símbolo oficial, sem distorção.
-- [ ] Mapear as fotos recebidas aos oito SKUs, selecionar capa e galeria e subir
-      as versões finais em WebP/AVIF.
-- [ ] Remover todos os caminhos locais inexistentes em `/produtos/*.jpg`.
-- [ ] Revisar nome, variante, volume, descrição, preço e disponibilidade de cada item.
-- [ ] Criar imagem Open Graph 1200×630 aprovada pela marca.
+- [x] Instalar Hermione e Articulat CF Light com `next/font/local`.
+- [x] Aplicar Hermione nos títulos em caixa alta e Articulat como fallback
+      exclusivo dos acentos, sem fallback tipográfico do sistema.
+- [x] Gerar favicon e ícones sociais a partir do símbolo oficial, sem distorção.
+- [x] Mapear as fotos recebidas aos oito SKUs, selecionar capa e galeria e gerar
+      as versões finais locais em WebP/AVIF.
+- [x] Impedir o uso dos caminhos locais inexistentes em `/produtos/*.jpg` por
+      meio do mapa canônico `lib/product-images.ts`.
+- [x] Revisar nome, variante, volume, descrição, preço e disponibilidade de cada item.
+- [x] Criar proposta de imagem Open Graph 1200×630 com o logo oficial.
+- [ ] Aprovar com a marca a seleção fotográfica, o catálogo revisado e a imagem Open Graph.
+
+### Estado da Fase 1 em 04/08/2026
+
+- Articulat CF Light, favicon, Apple icon, Open Graph, capas e galerias estão
+  implementados. A Hermione DEMO foi aprovada para títulos em caixa alta, com
+  fallback Articulat somente nos caracteres acentuados.
+- A revisão factual e as fontes de cada foto estão em `docs/CATALOGO-FASE-1.md`.
+- O Supabase ainda guarda os oito caminhos JPG antigos. A chave pública não tem
+  permissão de atualização (RLS), então o runtime usa o mapa local sem gerar 4xx.
+- Publicação no bucket `produtos` e aprovação comercial permanecem dependências
+  de uma sessão administrativa e da responsável da EMIDÊ.
 
 ### Artefatos
 

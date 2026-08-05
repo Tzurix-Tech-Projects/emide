@@ -1,12 +1,8 @@
 # Fontes oficiais da EMIDÊ
 
-Arquivos licenciados necessários:
+- `Hermione.woff2`: display, peso 400.
+- `Articulat-CF-Light.woff2`: corpo e interface, peso 300.
 
-- `Hermione-Regular.woff2`
-- `Hermione-Light.woff2`
-- `ArticulatCF-Light.woff2`
-- `ArticulatCF-Normal.woff2`
-
-Depois de copiar os arquivos para esta pasta, descomente as declarações
-`localFont` em `app/fonts.ts` e remova os objetos de fallback. Não faça commit
-de arquivos cuja licença não permita redistribuição.
+Ambas são carregadas por `next/font/local` em `app/fonts.ts`, com preload e
+`font-display: swap`. A redistribuição deve continuar respeitando a licença
+fornecida pela titular da marca.

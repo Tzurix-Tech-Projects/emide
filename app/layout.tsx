@@ -6,8 +6,11 @@ import { CartProvider } from "@/lib/cart";
 import { Header } from "@/components/Header";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import {
+  CONTACT_ADDRESS,
   CONTACT_EMAIL,
+  CONTACT_PHONES,
   INSTAGRAM_URL,
   SITE_NAME,
   SITE_URL,
@@ -18,7 +21,7 @@ import {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Inteligência Olfativa`,
+    default: "Emidê Inteligência Olfativa | Marketing Olfativo e Fragrâncias Exclusivas",
     template: `%s — ${SITE_NAME}`,
   },
   description: siteDescription,
@@ -28,22 +31,22 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "/",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Inteligência Olfativa`,
+    title: "Emidê Inteligência Olfativa | Marketing Olfativo e Fragrâncias Exclusivas",
     description: siteDescription,
     images: [
       {
-        url: "/brand/emide-logo-dark.png",
-        width: 1578,
-        height: 473,
+        url: "/brand/emide-open-graph.png",
+        width: 1200,
+        height: 630,
         alt: "EMIDÊ — Inteligência Olfativa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Inteligência Olfativa`,
+    title: "Emidê Inteligência Olfativa | Marketing Olfativo e Fragrâncias Exclusivas",
     description: siteDescription,
-    images: ["/brand/emide-logo-dark.png"],
+    images: ["/brand/emide-open-graph.png"],
   },
   robots: {
     index: true,
@@ -58,6 +61,21 @@ const organizationSchema = {
   url: SITE_URL,
   description: siteDescription,
   email: CONTACT_EMAIL,
+  telephone: CONTACT_PHONES.map((phone) => `+${phone.international}`),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: CONTACT_ADDRESS.street,
+    addressLocality: CONTACT_ADDRESS.city,
+    addressRegion: CONTACT_ADDRESS.state,
+    addressCountry: CONTACT_ADDRESS.postalCountry,
+  },
+  contactPoint: CONTACT_PHONES.map((phone) => ({
+    "@type": "ContactPoint",
+    telephone: `+${phone.international}`,
+    contactType: "customer service",
+    areaServed: "BR",
+    availableLanguage: "Portuguese",
+  })),
   areaServed: "BR",
   sameAs: [INSTAGRAM_URL],
 };
@@ -70,6 +88,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${hermione.variable} ${articulat.variable}`}>
       <body>
+        <ScrollProgress />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

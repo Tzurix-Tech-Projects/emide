@@ -1,16 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { buildContactUrl, HAS_WHATSAPP_NUMBER } from "@/lib/whatsapp";
+import { BrandText } from "@/components/BrandText";
+import { HAS_WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import { CATEGORIES } from "@/lib/products";
 import {
+  CONTACT_ADDRESS,
   CONTACT_EMAIL,
+  CONTACT_PHONES,
   INSTAGRAM_URL,
   STORE_ENABLED,
 } from "@/lib/site";
 
 const COMPANY_LINKS = [
-  { href: "/#sobre", label: "Sobre" },
-  { href: "/#profissional", label: "Profissional" },
+  { href: "/#sobre", label: "Sobre a EMIDÊ" },
+  { href: "/#solucoes", label: "Soluções" },
+  { href: "/#fragrancias", label: "Fragrâncias exclusivas" },
+  { href: "/#cases", label: "Cases" },
+  { href: "/#produtos", label: "Produtos personalizados" },
   { href: "/#faq", label: "Perguntas frequentes" },
 ];
 
@@ -40,7 +46,8 @@ export function Footer() {
               className="mb-5 h-auto w-[220px]"
             />
             <p className="max-w-[280px] text-sm">
-              Perfumaria de ambientes para a casa e para espaços comerciais.
+              Inteligência olfativa para transformar marcas e ambientes em
+              experiências memoráveis.
             </p>
           </div>
 
@@ -49,20 +56,22 @@ export function Footer() {
 
           <div>
             <h3 className="mb-5 text-xs uppercase tracking-[0.2em] text-charcoal">
-              Contato
+              <BrandText>Contato</BrandText>
             </h3>
             <ul className="flex flex-col gap-3 text-sm">
               {HAS_WHATSAPP_NUMBER && (
-                <li>
-                  <a
-                    href={buildContactUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-11 min-w-11 items-center hover:text-forest"
-                  >
-                    WhatsApp
-                  </a>
-                </li>
+                CONTACT_PHONES.map((phone) => (
+                  <li key={phone.international}>
+                    <a
+                      href={`https://wa.me/${phone.international}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-11 min-w-11 items-center hover:text-forest"
+                    >
+                      WhatsApp {phone.display}
+                    </a>
+                  </li>
+                ))
               )}
               <li>
                 <a
@@ -73,6 +82,12 @@ export function Footer() {
                 >
                   Instagram
                 </a>
+              </li>
+              <li className="max-w-[280px] pt-2 leading-relaxed">
+                {CONTACT_ADDRESS.street}
+                <br />
+                {CONTACT_ADDRESS.district} — {CONTACT_ADDRESS.city}/
+                {CONTACT_ADDRESS.state}
               </li>
               <li>
                 <a
@@ -105,7 +120,7 @@ function FooterColumn({
   return (
     <div>
       <h3 className="mb-5 text-xs uppercase tracking-[0.2em] text-charcoal">
-        {title}
+        <BrandText>{title}</BrandText>
       </h3>
       <ul className="flex flex-col gap-3 text-sm">
         {links.map((link) => (

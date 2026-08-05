@@ -31,13 +31,13 @@ Todas em `.env.local` (modelo em `.env.local.example`):
 ```
 app/
   layout.tsx              Metadados, skip link, Providers, Header, Footer, CartDrawer
-  page.tsx                Home institucional; coleção e destaques entram apenas com a loja ativa
+  page.tsx                Jornada institucional completa; destaques entram apenas com a loja ativa
   loja/                   Catálogo com filtro por categoria refletido na URL
   produto/[slug]/         Detalhe do produto (SSG por slug) com schema Product
   admin/                  Painel: login, CRUD de produtos, lista e status de pedidos
   robots.ts · sitemap.ts  SEO técnico
-  icon.svg                Favicon
-  fonts.ts                Slot das fontes da marca, hoje em fallback
+  icon.png · apple-icon.png  Ícones gerados a partir do símbolo oficial
+  fonts.ts                Fontes licenciadas carregadas com next/font/local
   globals.css             Tokens de foco, ritmo de seção, botões e campos
 components/
   Header · Footer · Hero · ProductCard · CartDrawer
@@ -49,6 +49,7 @@ lib/
   orders.ts               Gravação do pedido via RPC create_order
   whatsapp.ts             URLs wa.me e formatação de preço
   site.ts                 Nome, domínio e descrição do site
+  institutional-content.ts Conteúdo estruturado de soluções, processo, segmentos e cases
 ```
 
 ## Como funciona o checkout
@@ -67,11 +68,12 @@ proposta B2B.
   `emide-logo-light.png` e `emide-symbol.png`.
 
 - **Fotos institucionais**: seleção do lançamento em
-  `public/images/institucional/`. Fotos do catálogo continuam cadastradas pelo
-  painel ou em `public/produtos/`; ver `public/produtos/README.txt`.
-- **Fontes**: Hermione e Articulat CF Light. Coloque os `.woff2` licenciados em
-  `public/fonts/` e descomente os blocos em `app/fonts.ts`. A entrega dos
-  arquivos é uma dependência obrigatória antes da publicação final.
+  `public/images/institucional/`.
+- **Fotos do catálogo**: curadoria dos oito SKUs em `public/produtos/`, com
+  capa e galeria em WebP/AVIF. O mapa de uso está em `lib/product-images.ts`.
+- **Fontes**: Hermione e Articulat CF Light licenciadas em `public/fonts/` e
+  carregadas localmente por `app/fonts.ts`.
+- **Social**: prévia 1200×630 em `public/brand/emide-open-graph.png`.
 
 ## Paleta
 
@@ -105,6 +107,9 @@ não use o vínculo `tzurix` encontrado no diretório pai.
 
 ## Estado do lançamento
 
-- Institucional: ativo por padrão.
+- Institucional: ativo por padrão, com Início, Sobre, Soluções, Fragrâncias,
+  Produtos, Cases, FAQ e Contato em uma única jornada por âncoras.
 - Loja pública: desativada por padrão.
 - Continuação da loja: ver `BACKLOG-LOJA.md`.
+- Pendências de comprovação e aprovação editorial: ver
+  `docs/CONTEUDO-INSTITUCIONAL.md`.

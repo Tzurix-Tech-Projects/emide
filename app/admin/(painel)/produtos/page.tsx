@@ -98,7 +98,7 @@ export default function AdminProductsPage() {
   return (
     <div>
       <div className="mb-8 flex items-center justify-between">
-        <h1 className="text-3xl font-light">Produtos</h1>
+        <h1 className="text-3xl font-normal">Produtos</h1>
         <button
           onClick={openNew}
           className="btn bg-forest text-paper hover:bg-gold"

@@ -11,6 +11,7 @@ import { money } from "@/lib/whatsapp";
 import { SITE_NAME, SITE_URL, STORE_ENABLED } from "@/lib/site";
 import { ProductActions } from "./ProductActions";
 import { ProductPhoto } from "./ProductPhoto";
+import { BrandText } from "@/components/BrandText";
 
 export async function generateStaticParams() {
   if (!STORE_ENABLED) return [];
@@ -54,7 +55,7 @@ function productSchema(product: Product) {
     description: product.description,
     category: categoryLabel(product.category),
     brand: { "@type": "Brand", name: SITE_NAME },
-    image: product.image ? [product.image] : undefined,
+    image: product.images,
     offers: product.price
       ? {
           "@type": "Offer",
@@ -91,7 +92,7 @@ export default async function ProductPage({
           <nav aria-label="Você está em" className="mb-10 text-xs uppercase tracking-[0.12em] text-ink">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/loja" className="hover:text-gold-dark">
+                <Link href="/loja" className="hover:text-forest">
                   Loja
                 </Link>
               </li>
@@ -99,7 +100,7 @@ export default async function ProductPage({
               <li>
                 <Link
                   href={`/loja?categoria=${product.category}`}
-                  className="hover:text-gold-dark"
+                  className="hover:text-forest"
                 >
                   {categoryLabel(product.category)}
                 </Link>
@@ -108,11 +109,11 @@ export default async function ProductPage({
           </nav>
 
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-20">
-            <ProductPhoto src={product.image} alt={product.name} />
+            <ProductPhoto images={product.images} alt={product.name} />
             <div className="flex flex-col justify-center">
               <span className="eyebrow">{categoryLabel(product.category)}</span>
-              <h1 className="my-4 text-4xl font-light md:text-5xl">
-                {product.name}
+              <h1 className="my-4 text-4xl font-normal md:text-5xl">
+                <BrandText>{product.name}</BrandText>
               </h1>
               <p className="mb-6 max-w-[46ch] text-base text-ink">
                 {product.description}
@@ -131,7 +132,7 @@ export default async function ProductPage({
                   </div>
                 )}
               </dl>
-              <p className="mb-9 font-display text-3xl">
+              <p className="mb-9 font-sans text-3xl font-light">
                 {product.price ? money(product.price) : "Sob consulta"}
               </p>
               <ProductActions product={product} />

@@ -7,7 +7,7 @@ Checkout via WhatsApp.
 ## Antes de mexer no design
 Leia `DESIGN.md`. Pontos que costumam ser "corrigidos" por engano e NÃO devem ser:
 - Serif (Hermione) nos títulos é intencional (site editorial).
-- Corpo é Articulat CF Light. Fallback de sistema é apenas provisório.
+- Corpo é Articulat CF Light; os dois arquivos oficiais são locais e obrigatórios.
 - `gold` (#D5A72C) e `gold-dark` (#AB7311) não são texto pequeno sobre branco
   nem botão com texto branco. Ações claras usam `forest` (#0D3120).
 - Base escura oficial é `#1D1D1B`; acentos oficiais são `#E6D14C`,
@@ -42,8 +42,8 @@ Leia `DESIGN.md`. Pontos que costumam ser "corrigidos" por engano e NÃO devem s
 `.env.local` com `NEXT_PUBLIC_WHATSAPP_NUMBER`, `NEXT_PUBLIC_SITE_URL`,
 `NEXT_PUBLIC_STORE_ENABLED`, `NEXT_PUBLIC_SUPABASE_URL` e
 `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
-Fotos pelo painel ou em `public/produtos/`. Fontes em `public/fonts/` +
-descomentar `app/fonts.ts`.
+Fotos curadas em `public/produtos/` e mapeadas por `lib/product-images.ts`.
+Fontes licenciadas em `public/fonts/` e registradas em `app/fonts.ts`.
 
 O lançamento institucional usa `NEXT_PUBLIC_STORE_ENABLED=false`. Não ative a
 loja antes de concluir os P0 de `BACKLOG-LOJA.md`.

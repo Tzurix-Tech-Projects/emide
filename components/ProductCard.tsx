@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { categoryLabel, type Product } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 import { buildQuoteUrl, money } from "@/lib/whatsapp";
+import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
+import { BrandText } from "@/components/BrandText";
 
 export function ProductCard({
   product,
@@ -16,7 +18,7 @@ export function ProductCard({
   index?: number;
 }) {
   const { add } = useCart();
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useHydratedReducedMotion();
   const [imageFailed, setImageFailed] = useState(false);
 
   const entrance = prefersReducedMotion
@@ -58,20 +60,20 @@ export function ProductCard({
       </div>
 
       <div className="flex flex-1 flex-col p-8">
-        <span className="mb-2 text-[11px] uppercase tracking-[0.2em] text-gold-dark">
+        <span className="mb-2 text-[11px] uppercase tracking-[0.2em] text-forest">
           {categoryLabel(product.category)}
         </span>
-        <h3 className="mb-1.5 font-display text-xl">
+        <h3 className="mb-1.5 text-xl">
           <Link
             href={`/produto/${product.slug}`}
-            className="transition-colors hover:text-gold-dark"
+            className="transition-colors hover:text-forest"
           >
-            {product.name}
+            <BrandText>{product.name}</BrandText>
           </Link>
         </h3>
         <p className="mb-5 flex-1 text-sm text-ink">{product.description}</p>
         <div className="mt-auto flex items-center justify-between gap-4">
-          <span className="font-display text-lg">
+          <span className="font-sans text-lg">
             {product.price ? (
               money(product.price)
             ) : (
@@ -82,7 +84,7 @@ export function ProductCard({
             <button
               onClick={() => add(product.slug)}
               aria-label={`Adicionar ${product.name} ao carrinho`}
-              className="border-b border-forest pb-0.5 text-xs uppercase tracking-[0.12em] transition-colors hover:border-gold-dark hover:text-gold-dark"
+              className="border-b border-forest pb-0.5 text-xs uppercase tracking-[0.12em] transition-colors hover:border-charcoal hover:text-charcoal"
             >
               Adicionar
             </button>
@@ -92,7 +94,7 @@ export function ProductCard({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Solicitar proposta para ${product.name} pelo WhatsApp`}
-              className="border-b border-gold-dark pb-0.5 text-xs uppercase tracking-[0.12em] text-gold-dark"
+              className="border-b border-forest pb-0.5 text-xs uppercase tracking-[0.12em] text-forest"
             >
               Solicitar proposta
             </a>

@@ -14,15 +14,36 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    font-synthesis: none;
+  }
+  section[id] {
+    scroll-margin-top: 6rem;
   }
   body {
     @apply bg-paper text-charcoal font-sans font-light antialiased;
     line-height: 1.8;
   }
   h1, h2, h3, h4 {
-    @apply font-display;
+    @apply font-sans font-light;
     line-height: 1.1;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+  }
+
+  .brand-word-hermione {
+    @apply font-display font-normal;
+    letter-spacing: 0.035em;
+  }
+
+  .brand-word-accented {
+    @apply font-sans font-light;
     letter-spacing: 0.01em;
+  }
+
+  .brand-punctuation {
+    @apply font-sans font-light;
+    letter-spacing: 0;
   }
 
   :focus-visible {
@@ -42,9 +63,9 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
-    /* O HTML do servidor já sai com opacity:0 inline, e useReducedMotion é
-       false no SSR. Revelar aqui garante o conteúdo visível antes de qualquer
-       JavaScript rodar. */
+    /* O HTML do servidor sai com opacity:0 inline. Esta regra revela o
+       conteúdo antes do JavaScript e o hook hidratável mantém SSR e cliente
+       com a mesma primeira árvore. */
     [data-reveal] {
       opacity: 1 !important;
       transform: none !important;
@@ -70,7 +91,7 @@
   }
 
   .eyebrow {
-    @apply text-xs uppercase tracking-[0.25em] text-forest font-normal;
+    @apply text-xs uppercase tracking-[0.25em] text-forest font-light;
   }
   .on-dark .eyebrow {
     @apply text-gold-light;
@@ -78,8 +99,10 @@
 
   .btn {
     @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2.5 rounded-sm px-8 py-3 text-xs uppercase
-           tracking-[0.15em] font-normal transition-all duration-300 ease-smooth
+           tracking-[0.15em] font-light transition-all duration-300 ease-smooth
            active:scale-[0.98];
+    text-align: center;
+    touch-action: manipulation;
   }
   .btn-primary {
     @apply bg-forest text-paper hover:bg-charcoal;
@@ -105,11 +128,29 @@
     @apply mb-1.5 block text-xs uppercase tracking-[0.12em] text-ink;
   }
 
+  .motion-card {
+    @apply transition-[transform,box-shadow,border-color] duration-300 ease-smooth;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .motion-card:hover {
+      transform: translateY(-4px);
+      border-color: theme(colors.gold.dark);
+      box-shadow: 0 22px 55px -38px rgba(29, 29, 27, 0.45);
+    }
+  }
+
   /* Só aparece quando recebe foco pelo teclado. */
   .skip-link {
     @apply fixed left-4 top-4 z-[100] flex min-h-11 -translate-y-24 items-center rounded-sm bg-forest px-5 py-3
            text-xs uppercase tracking-[0.15em] text-paper transition-transform
            focus:translate-y-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-card:hover {
+    transform: none;
   }
 }
 

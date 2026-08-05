@@ -14,8 +14,8 @@ permanece preservada no código e só volta ao ar após o backlog de produção.
 
 - **Hermione é obrigatória nos títulos.** O site é editorial, não um dashboard.
 - **Articulat CF Light é obrigatória no corpo e na interface.** Os arquivos
-  licenciados ainda precisam ser entregues em `.woff2`; não substituir por
-  Inter, Sora ou outra família em produção.
+  licenciados estão em `public/fonts/`; não substituir por Inter, Sora ou
+  outra família em produção.
 - **Dourado é o acento; verde é superfície de apoio.** A base escura oficial é
   `#1D1D1B` e o verde institucional `#0D3120` entra em faixas, CTAs e seções
   escuras pontuais. Sem glow, sem glassmorphism e sem gradiente chamativo fora
@@ -33,8 +33,8 @@ gold        #D5A72C   dourado principal e detalhes
 gold-dark   #AB7311   linhas e detalhes sobre fundo claro; não usar em texto pequeno
 paper       #FFFFFF   fundo
 mist        #F5F4F1   fundo de seção
-line        #E2E0DA   divisores de 1px
-ink         #4A4A46   corpo de texto secundário
+line        #D7D4CC   divisores de 1px com contraste reforçado
+ink         #3F3F3B   corpo de texto secundário; 10,58:1 sobre branco
 ```
 
 Regra de contraste: `gold` e `gold-dark` reprovam em AA como texto pequeno
@@ -42,9 +42,13 @@ sobre branco e como botão com texto branco. Em fundo claro, ações e texto
 funcional usam `forest`; dourados ficam em linhas, detalhes não textuais ou
 texto claro sobre superfícies escuras com contraste medido.
 
-Tipografia: `font-display` = Hermione nos títulos; `font-sans` = Articulat CF
-Light no corpo. Peso 300 em display e corpo, 400 em botão. Line-height 1.1 em
-título e 1.8 em corpo.
+Tipografia: `font-display` = Hermione 400; `font-sans` = Articulat CF Light 300.
+O arquivo `HERMIONE-DEMO` contém somente A-Z e não cobre acentos. Nos títulos,
+`BrandText` aplica Hermione apenas às palavras sem acento. Quando uma palavra
+contém qualquer caractere acentuado, a palavra inteira usa Articulat; nunca há
+troca de fonte no meio da palavra. Títulos não processados por `BrandText`,
+preços, números e textos corridos usam somente Articulat. Line-height 1.1 em
+título e 1.8 em corpo; síntese artificial de pesos fica desativada.
 
 ## 4. Logos oficiais
 
@@ -85,10 +89,12 @@ título e 1.8 em corpo.
   `var(--focus-ring)`. Seções escuras recebem a classe `.on-dark`, que troca o
   anel para `gold-light`. Nunca use `outline-none` sem substituir o indicador.
 - **Movimento**: só `transform` e `opacity`, isolado em client leaves
-  (`Reveal`, `Hero`, `ProductCard`, `CartDrawer`, `FAQ`). Todo componente
-  animado consulta `useReducedMotion` e renderiza o conteúdo já visível quando
-  a preferência está ativa. Microinterações ficam entre 150–300ms e transições
-  complexas até 400ms. Evitar animação decorativa infinita.
+  (`Reveal`, `Hero`, `ScrollProgress`, `ProductCard`, `CartDrawer`, `FAQ`). O
+  hero usa paralaxe suave; seções entram de forma direcional; a barra superior
+  indica progresso de leitura; cards recebem elevação somente em dispositivos
+  com hover. Todo componente animado respeita movimento reduzido e renderiza o
+  conteúdo já visível quando a preferência está ativa. Microinterações ficam
+  entre 150–300ms e transições complexas até 480ms. Sem animação infinita.
 - **Estados**: onde há dados, existem vazio, carregando e erro. Campos têm
   rótulo visível acima, não só placeholder. Botão desativado explica o motivo.
 - **Mobile**: `min-h-[100dvh]`, nunca `h-screen`. Grades caem para uma coluna
@@ -115,6 +121,6 @@ máximo. Não invente número, cliente, resultado ou depoimento.
 - [ ] Uma coluna em mobile, sem scroll horizontal.
 - [ ] Targets interativos com no mínimo 44×44px.
 - [ ] Logo oficial usado sem alteração de proporção ou cor.
-- [ ] Hermione e Articulat CF Light carregadas a partir de arquivos licenciados.
+- [x] Hermione e Articulat CF Light carregadas a partir de arquivos licenciados.
 - [ ] Loja continua desativada enquanto `NEXT_PUBLIC_STORE_ENABLED=false`.
 - [ ] `npm run lint`, `npx tsc --noEmit` e `npm run build` passam.

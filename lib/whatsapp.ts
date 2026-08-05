@@ -1,8 +1,10 @@
 import type { CartLine } from "./cart";
 import type { CustomerInfo } from "./orders";
+import { CONTACT_PHONES } from "./site";
 
-/** DDI + DDD + número, só dígitos. Vem de NEXT_PUBLIC_WHATSAPP_NUMBER. */
-export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
+/** Número do ambiente, com o primeiro contato oficial como fallback. */
+export const WHATSAPP_NUMBER =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? CONTACT_PHONES[0].international;
 
 const PLACEHOLDER_NUMBERS = new Set(["5599999999999", "5511998765432"]);
 

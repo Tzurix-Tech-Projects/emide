@@ -1,39 +1,47 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "@phosphor-icons/react";
+import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
+import { BrandText } from "@/components/BrandText";
 
 const ITEMS = [
   {
-    id: "proposta",
-    question: "Como solicitar uma proposta?",
+    id: "alergia",
+    question: "O cheiro pode causar alergia?",
     answer:
-      "Conte o tipo de ambiente, a metragem aproximada e a cidade pelo canal de contato indicado no site. A EMIDÊ retorna com os próximos passos do atendimento.",
+      "As essências são produzidas seguindo padrões de segurança e a especificação informada pela EMIDÊ é hipoalergênica. A intensidade também é dimensionada para cada ambiente.",
   },
   {
-    id: "durabilidade",
-    question: "Qual a durabilidade dos difusores?",
+    id: "energia",
+    question: "A máquina consome muita energia?",
     answer:
-      "Um difusor de 300ml perfuma um ambiente por até quatro meses, dependendo da ventilação e do número de varetas usadas.",
+      "Não. Segundo a especificação dos equipamentos EMIDÊ, o consumo é comparável ao de um roteador de internet.",
   },
   {
-    id: "empresas",
-    question: "Vocês atendem empresas e projetos?",
+    id: "controle",
+    question: "Como controlar a intensidade da fragrância?",
     answer:
-      "Sim. Desenvolvemos assinaturas olfativas e sistemas de aromatização para hotéis, clínicas, escritórios e arquitetos. A proposta é solicitada na seção Profissional.",
+      "O controle é realizado por aplicativo conectado via Wi-Fi. É possível programar horários e ajustar a potência conforme o tamanho do ambiente e o fluxo de pessoas.",
   },
   {
     id: "exclusiva",
-    question: "É possível criar uma fragrância exclusiva?",
+    question: "A EMIDÊ desenvolve fragrâncias exclusivas?",
     answer:
-      "Sim, em projetos profissionais. A consultoria desenvolve composições alinhadas à identidade da marca.",
+      "Sim. Criamos fragrâncias autorais com base na identidade, no público e nas emoções que cada marca deseja transmitir.",
+  },
+  {
+    id: "personalizacao",
+    question: "É possível personalizar os produtos com a minha marca?",
+    answer:
+      "Sim. Aromatizadores, home sprays, água para tecidos, kits de lavabo e outros produtos podem receber a identidade visual e a fragrância da empresa.",
   },
 ];
 
 export function FAQ() {
   const [openId, setOpenId] = useState<string | null>(ITEMS[0].id);
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useHydratedReducedMotion();
 
   return (
     <dl className="max-w-[820px]">
@@ -50,9 +58,11 @@ export function FAQ() {
                 onClick={() => setOpenId(isOpen ? null : item.id)}
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className="flex w-full items-center justify-between gap-6 py-7 text-left font-display text-lg"
+                className="flex w-full items-center justify-between gap-6 py-7 text-left font-sans text-lg uppercase tracking-[0.025em]"
               >
-                {item.question}
+                <span>
+                  <BrandText>{item.question}</BrandText>
+                </span>
                 <motion.span
                   animate={{ rotate: isOpen ? 45 : 0 }}
                   transition={
@@ -60,7 +70,7 @@ export function FAQ() {
                       ? { duration: 0 }
                       : { type: "spring", stiffness: 200, damping: 20 }
                   }
-                  className="shrink-0 text-gold-dark"
+                  className="shrink-0 text-forest"
                   aria-hidden="true"
                 >
                   <Plus size={22} weight="light" />

@@ -1,10 +1,12 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import { STORE_ENABLED } from "@/lib/site";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
 import { B2BQuoteButton } from "@/components/WhatsAppActions";
+import { BrandText } from "@/components/BrandText";
 
 const container = {
   hidden: {},
@@ -16,10 +18,18 @@ const item = {
 };
 
 export function Hero() {
-  const prefersReducedMotion = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useHydratedReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.1]);
 
   return (
     <section
+      ref={heroRef}
       id="top"
       className="relative flex min-h-[100dvh] items-center overflow-hidden bg-mist pb-20 pt-32 md:py-32"
     >
@@ -31,36 +41,31 @@ export function Hero() {
       >
         <div className="max-w-[700px]">
           <motion.span data-reveal variants={item} className="eyebrow">
-            Inteligência Olfativa
+            EMIDÊ Inteligência Olfativa
           </motion.span>
           <motion.h1
             data-reveal
             variants={item}
-            className="my-6 text-[2.75rem] font-light leading-[1.02] sm:text-5xl md:text-7xl"
+            className="my-6 text-[2.75rem] font-normal leading-[1.02] sm:text-5xl md:text-7xl"
           >
-            O ambiente também
+            <BrandText>Inteligência olfativa:</BrandText>
             <br aria-hidden="true" />
             <span className="sr-only"> </span>
-            tem memória.
+            <BrandText>a estratégia invisível do sucesso.</BrandText>
           </motion.h1>
           <motion.p
             data-reveal
             variants={item}
             className="mb-10 max-w-[520px] text-lg text-ink"
           >
-            Perfumaria de ambientes: difusores, sprays e linha lavabo para a casa,
-            e aromatização por nebulização para espaços comerciais.
+            Criamos identidades olfativas exclusivas que aumentam a percepção de
+            valor, fortalecem a conexão com o cliente e tornam sua marca
+            inesquecível.
           </motion.p>
           <motion.div data-reveal variants={item} className="flex flex-wrap gap-3">
-            {STORE_ENABLED ? (
-              <Link href="/loja" className="btn btn-primary">
-                Ver a loja
-              </Link>
-            ) : (
-              <B2BQuoteButton />
-            )}
-            <Link href={STORE_ENABLED ? "/#profissional" : "/#sobre"} className="btn btn-outline">
-              {STORE_ENABLED ? "Aromatização profissional" : "Conheça a EMIDÊ"}
+            <B2BQuoteButton label="Quero criar minha identidade olfativa" />
+            <Link href="/#solucoes" className="btn btn-outline">
+              Conheça nossas soluções
             </Link>
           </motion.div>
         </div>
@@ -70,14 +75,23 @@ export function Hero() {
           variants={item}
           className="relative min-h-[390px] overflow-hidden bg-charcoal shadow-[0_28px_80px_-50px_rgba(29,29,27,0.45)] sm:min-h-[520px] lg:min-h-[610px]"
         >
-          <Image
-            src="/images/institucional/hero-aromatizacao.jpg"
-            alt="Aromatizador profissional EMIDÊ em um ambiente com madeira e iluminação quente"
-            fill
-            priority
-            sizes="(max-width: 1024px) 92vw, 44vw"
-            className="object-cover object-center"
-          />
+          <motion.div
+            className="absolute inset-[-5%]"
+            style={
+              prefersReducedMotion
+                ? undefined
+                : { y: imageY, scale: imageScale }
+            }
+          >
+            <Image
+              src="/images/institucional/hero-aromatizacao.jpg"
+              alt="Aromatizador profissional EMIDÊ em um ambiente com madeira e iluminação quente"
+              fill
+              priority
+              sizes="(max-width: 1024px) 92vw, 44vw"
+              className="object-cover object-center"
+            />
+          </motion.div>
           <div
             className="absolute inset-0 bg-gradient-to-t from-charcoal/45 via-transparent to-transparent"
             aria-hidden="true"
@@ -88,7 +102,7 @@ export function Hero() {
               Aromatização profissional
             </p>
             <p className="mt-1 text-sm text-paper/80">
-              Tecnologia integrada ao ambiente
+              Estratégia, tecnologia e personalização
             </p>
           </div>
         </motion.div>

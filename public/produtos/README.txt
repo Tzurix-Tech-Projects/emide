@@ -1,25 +1,14 @@
-Fotos de produto servidas localmente pelo site.
+Curadoria local da Fase 1.
 
-Cada produto exibe a foto do campo image_url, cadastrado no painel
-(/admin/produtos). Há duas origens possíveis:
+Cada pasta usa o slug do produto e contém:
 
-  1. Upload pelo painel — o arquivo vai para o bucket "produtos" do Supabase
-     Storage e o image_url recebe a URL pública. É o caminho recomendado.
-  2. Arquivo nesta pasta — nesse caso o image_url é o caminho relativo,
-     por exemplo /produtos/difusor-oval.jpg
+  cover.webp / cover.avif
+  gallery-1.webp / gallery-1.avif
 
-Os produtos cadastrados hoje apontam para caminhos desta pasta:
+O site usa WebP e preserva AVIF como versão final alternativa. O mapa central
+fica em lib/product-images.ts e impede que os caminhos JPG legados do Supabase
+gerem requisições 4xx. A origem e as pendências de aprovação de cada imagem
+estão documentadas em docs/CATALOGO-FASE-1.md.
 
-  difusor-signature.jpg
-  difusor-cube.jpg
-  difusor-oval.jpg
-  home-spray.jpg
-  agua-lencois.jpg
-  sabonete.jpg
-  aroma-wall.jpg
-  aroma-pro.jpg
-
-Enquanto esses arquivos não existirem, o card mostra o fundo neutro no lugar
-da foto, sem imagem quebrada.
-
-Formato: quadrado (1200x1200 ou maior), JPG ou WEBP, fundo neutro, luz natural.
+As versões finais são quadradas, até 1200×1200, sem metadados e com fundo
+neutro. Novas galerias devem manter o mesmo padrão e nunca misturar variantes.

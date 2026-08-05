@@ -1,32 +1,27 @@
-// Fontes da marca: Hermione (display) e Articulat CF Light (interface).
-//
-// Para ativar quando os arquivos licenciados existirem:
-//   1. coloque os .woff2 em /public/fonts/
-//   2. descomente os blocos localFont abaixo
-//   3. apague os objetos de fallback do fim do arquivo
-//
-// Até lá o site roda com fallbacks seguros, mas essa condição é provisória e
-// não representa a tipografia final aprovada da marca.
+import localFont from "next/font/local";
 
-// import localFont from "next/font/local";
-//
-// export const hermione = localFont({
-//   src: [
-//     { path: "../public/fonts/Hermione-Regular.woff2", weight: "400", style: "normal" },
-//     { path: "../public/fonts/Hermione-Light.woff2", weight: "300", style: "normal" },
-//   ],
-//   variable: "--font-hermione",
-//   display: "swap",
-// });
-//
-// export const articulat = localFont({
-//   src: [
-//     { path: "../public/fonts/ArticulatCF-Light.woff2", weight: "300", style: "normal" },
-//     { path: "../public/fonts/ArticulatCF-Normal.woff2", weight: "400", style: "normal" },
-//   ],
-//   variable: "--font-articulat",
-//   display: "swap",
-// });
+/**
+ * Arquivo Hermione recebido. A copia atual identifica-se internamente como
+ * HERMIONE-DEMO e nao possui cobertura suficiente para textos em portugues.
+ * Seu uso fica restrito a titulos em caixa alta; a Articulat cobre os
+ * caracteres acentuados que nao existem no arquivo.
+ */
+export const hermione = localFont({
+  src: "../public/fonts/Hermione.woff2",
+  variable: "--font-hermione",
+  display: "swap",
+  weight: "400",
+  style: "normal",
+  preload: true,
+  adjustFontFallback: false,
+});
 
-export const hermione = { variable: "" };
-export const articulat = { variable: "" };
+/** Articulat CF Light licenciada: corpo, navegação e controles. */
+export const articulat = localFont({
+  src: "../public/fonts/Articulat-CF-Light.woff2",
+  variable: "--font-articulat",
+  display: "swap",
+  weight: "300",
+  style: "normal",
+  preload: true,
+});

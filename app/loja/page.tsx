@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { fetchProducts } from "@/lib/products";
 import { STORE_ENABLED } from "@/lib/site";
 import { CatalogBrowser } from "./CatalogBrowser";
+import { BrandText } from "@/components/BrandText";
 
 const description =
   "Difusores, home sprays, linha lavabo e aromatização profissional EMIDÊ. Monte o carrinho e finalize o pedido pelo WhatsApp.";
@@ -30,7 +31,9 @@ export default async function LojaPage() {
       <section className="pb-16">
         <div className="wrap">
           <span className="eyebrow">A coleção completa</span>
-          <h1 className="my-5 text-4xl font-light md:text-6xl">A loja EMIDÊ.</h1>
+          <h1 className="my-5 text-4xl font-normal md:text-6xl">
+            <BrandText>A loja EMIDÊ.</BrandText>
+          </h1>
           <p className="max-w-[520px] text-lg text-ink">
             Filtre por categoria, monte o carrinho e finalize o pedido pelo
             WhatsApp.
