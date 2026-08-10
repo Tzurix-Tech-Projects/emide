@@ -61,7 +61,7 @@ export function FAQ() {
                 className="flex w-full items-center justify-between gap-6 py-7 text-left font-sans text-lg uppercase tracking-[0.025em]"
               >
                 <span>
-                  <BrandText>{item.question}</BrandText>
+                  {item.question}
                 </span>
                 <motion.span
                   animate={{ rotate: isOpen ? 45 : 0 }}

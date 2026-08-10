@@ -485,7 +485,7 @@ export default async function Home() {
           <Reveal>
             <span className="eyebrow">Vamos conversar</span>
             <h2 className="my-6 text-4xl font-normal text-paper md:text-6xl">
-              <BrandText>Vamos desenhar a estratégia olfativa do seu próximo projeto?</BrandText>
+              Vamos desenhar a <BrandText>estratégia olfativa</BrandText> do seu próximo projeto?
             </h2>
             <p className="mb-5 max-w-[680px] text-base text-paper/75">
               Grandes negócios começam com um bom café e terminam com um aroma

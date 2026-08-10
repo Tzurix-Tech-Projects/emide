@@ -14,7 +14,7 @@ export const SITE_URL =
 
 export const INSTAGRAM_URL = "https://www.instagram.com/emide.oficial/";
 
-export const CONTACT_EMAIL = "contato@emide.com.br";
+export const CONTACT_EMAIL = "contato@emideinteligenciaolfativa.com.br";
 
 export const CONTACT_PHONES = [
   { display: "(13) 99150-4516", international: "5513991504516" },
