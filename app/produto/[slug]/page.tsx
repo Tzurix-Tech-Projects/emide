@@ -9,12 +9,15 @@ import {
 } from "@/lib/products";
 import { money } from "@/lib/whatsapp";
 import { SITE_NAME, SITE_URL, STORE_ENABLED } from "@/lib/site";
+import { isSupabaseConfigured } from "@/lib/supabase";
 import { ProductActions } from "./ProductActions";
 import { ProductPhoto } from "./ProductPhoto";
 import { BrandText } from "@/components/BrandText";
 
 export async function generateStaticParams() {
-  if (!STORE_ENABLED) return [];
+  // Sem chaves do Supabase o build não pode consultar o catálogo. Devolver
+  // uma lista vazia mantém a rota existindo e o deploy de pé.
+  if (!STORE_ENABLED || !isSupabaseConfigured) return [];
 
   const products = await fetchProducts();
   return products.map((product) => ({ slug: product.slug }));

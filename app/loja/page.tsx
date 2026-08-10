@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { fetchProducts } from "@/lib/products";
+import { isSupabaseConfigured } from "@/lib/supabase";
 import { STORE_ENABLED } from "@/lib/site";
 import { CatalogBrowser } from "./CatalogBrowser";
 import { BrandText } from "@/components/BrandText";
@@ -22,7 +23,9 @@ export const metadata: Metadata = {
 };
 
 export default async function LojaPage() {
-  if (!STORE_ENABLED) notFound();
+  // Loja ligada sem banco é erro de configuração. Ela some do site em vez de
+  // quebrar o build do institucional inteiro.
+  if (!STORE_ENABLED || !isSupabaseConfigured) notFound();
 
   const products = await fetchProducts();
 

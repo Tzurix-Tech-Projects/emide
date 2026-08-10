@@ -18,6 +18,7 @@ import {
   TECHNOLOGY_FEATURES,
 } from "@/lib/institutional-content";
 import { fetchProducts } from "@/lib/products";
+import { isSupabaseConfigured } from "@/lib/supabase";
 import {
   CONTACT_ADDRESS,
   CONTACT_EMAIL,
@@ -28,7 +29,8 @@ import {
 const FEATURED_LIMIT = 3;
 
 export default async function Home() {
-  const products = STORE_ENABLED ? await fetchProducts() : [];
+  const canReadCatalog = STORE_ENABLED && isSupabaseConfigured;
+  const products = canReadCatalog ? await fetchProducts() : [];
   const featured = products
     .filter((product) => product.mode === "buy")
     .slice(0, FEATURED_LIMIT);

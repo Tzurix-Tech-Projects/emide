@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
 import { fetchProducts, CATEGORIES } from "@/lib/products";
+import { isSupabaseConfigured } from "@/lib/supabase";
 import { SITE_URL, STORE_ENABLED } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  if (!STORE_ENABLED) {
+  // Sem catálogo acessível o sitemap cai para o institucional em vez de
+  // derrubar o build, que é o que acontecia quando faltavam as chaves.
+  if (!STORE_ENABLED || !isSupabaseConfigured) {
     return [{ url: SITE_URL, changeFrequency: "monthly", priority: 1 }];
   }
 
