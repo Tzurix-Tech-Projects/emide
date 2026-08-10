@@ -1,13 +1,19 @@
 # CLAUDE.md — EMIDÊ
 
 Loja de perfumaria de ambientes premium com painel administrativo. Next.js 15
-(App Router), TypeScript, Tailwind, Framer Motion, Phosphor icons, Supabase.
+(App Router), TypeScript, Tailwind, GSAP, Phosphor icons, Supabase.
 Checkout via WhatsApp.
 
 ## Antes de mexer no design
 Leia `DESIGN.md`. Pontos que costumam ser "corrigidos" por engano e NÃO devem ser:
-- Serif (Hermione) nos títulos é intencional (site editorial).
+- Títulos são Articulat CF Light. A Hermione entregue é o `HERMIONE-DEMO`, com
+  29 codepoints (só A-Z maiúsculo): entra apenas via `DisplayAccent`, em trecho
+  escolhido a dedo. Não volte a aplicá-la automaticamente por palavra.
 - Corpo é Articulat CF Light; os dois arquivos oficiais são locais e obrigatórios.
+- Caixa alta em português precisa de entrelinha folgada (1.12+). Apertar corta
+  Ê, Ã e Ç, sobretudo dentro das máscaras de animação.
+- Tamanhos de título saem dos tokens fluidos `text-display-*`, não de utilitários
+  soltos por breakpoint.
 - `gold` (#D5A72C) e `gold-dark` (#AB7311) não são texto pequeno sobre branco
   nem botão com texto branco. Ações claras usam `forest` (#0D3120).
 - Base escura oficial é `#1D1D1B`; acentos oficiais são `#E6D14C`,
@@ -29,9 +35,11 @@ Leia `DESIGN.md`. Pontos que costumam ser "corrigidos" por engano e NÃO devem s
 - Tokens: `tailwind.config.ts`; utilitários de UI: `app/globals.css`
 
 ## Regras técnicas
-- Animações só em `transform`/`opacity`, isoladas em client leaves com cleanup,
-  e sempre atrás de `useReducedMotion`. Conteúdo nunca depende da animação para
-  ficar visível.
+- GSAP é a única biblioteca de animação. Toda animação passa pelo hook
+  `useGsap` (`lib/use-gsap.ts`), que já isola escopo, limpa no unmount e só roda
+  com `prefers-reduced-motion: no-preference`. Só `transform`/`opacity`.
+  Conteúdo nunca depende da animação para ficar visível.
+- Abrir/fechar simples fica em CSS (ver FAQ), não em JavaScript.
 - Full-height: `min-h-[100dvh]`, nunca `h-screen`.
 - Zero emojis. Ícones Phosphor weight `light`, `aria-hidden` quando decorativos.
 - Foco visível em todo controle. Nada de `outline-none` sem substituto.

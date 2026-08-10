@@ -1,0 +1,361 @@
+- generic [active] [ref=f2e1]:
+  - link "Ir para o conteúdo" [ref=f2e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - banner [ref=f2e3]:
+    - generic [ref=f2e4]:
+      - link "EMIDÊ, ir para a página inicial" [ref=f2e5] [cursor=pointer]:
+        - /url: /
+      - navigation "Navegação principal" [ref=f2e6]:
+        - link "Início" [ref=f2e7] [cursor=pointer]:
+          - /url: /#top
+        - link "Sobre" [ref=f2e8] [cursor=pointer]:
+          - /url: /#sobre
+        - link "Soluções" [ref=f2e9] [cursor=pointer]:
+          - /url: /#solucoes
+        - link "Fragrâncias" [ref=f2e10] [cursor=pointer]:
+          - /url: /#fragrancias
+        - link "Cases" [ref=f2e11] [cursor=pointer]:
+          - /url: /#cases
+        - link "Produtos" [ref=f2e12] [cursor=pointer]:
+          - /url: /#produtos
+        - link "FAQ" [ref=f2e13] [cursor=pointer]:
+          - /url: /#faq
+        - link "Contato" [ref=f2e14] [cursor=pointer]:
+          - /url: /#contato
+  - main [ref=f2e15]:
+    - generic [ref=f2e16]:
+      - generic [ref=f2e21]:
+        - text: Inteligência Olfativa
+        - heading [level=1] [ref=f2e22]:
+          - text: Damos forma ao que não pode ser
+          - emphasis [ref=f2e23]: visto.
+        - generic [ref=f2e24]:
+          - paragraph [ref=f2e25]: Criamos identidades olfativas que traduzem a essência das marcas e transformam ambientes em experiências memoráveis.
+          - generic [ref=f2e26]:
+            - link "Solicitar diagnóstico" [ref=f2e27] [cursor=pointer]:
+              - /url: https://wa.me/5513991504516?text=Ol%C3%A1%2C%20EMID%C3%8A!%20Gostaria%20de%20uma%20proposta%20de%20aromatiza%C3%A7%C3%A3o%20profissional%20para%20o%20meu%20espa%C3%A7o.%0A%0ATipo%20de%20ambiente%3A%0AMetragem%20aproximada%3A%0ACidade%3A
+            - link "Conhecer soluções" [ref=f2e30] [cursor=pointer]:
+              - /url: /#solucoes
+      - generic:
+        - generic [ref=f2e31]:
+          - generic [ref=f2e32]: "01"
+          - generic [ref=f2e34]: "05"
+        - link "Descubra" [ref=f2e35] [cursor=pointer]:
+          - /url: "#sobre"
+    - generic [ref=f2e39]:
+      - img "Difusor e sabonete líquido EMIDÊ em uma composição de madeira clara" [ref=f2e43]
+      - generic [ref=f2e45]:
+        - text: O que fazemos
+        - heading "Transformamos a essência da sua marca em uma experiência memorável" [level=2] [ref=f2e46]
+        - generic [ref=f2e47]:
+          - paragraph [ref=f2e48]: Criamos identidades olfativas que traduzem a personalidade e os valores de cada marca, fortalecendo a experiência do cliente e construindo conexões emocionais que permanecem na memória.
+          - paragraph [ref=f2e49]: Mais do que aromatizar ambientes, desenvolvemos estratégias sensoriais capazes de comunicar posicionamento, qualidade e exclusividade.
+        - paragraph [ref=f2e51]: Um cliente encantado compra valor, não apenas preço.
+    - generic [ref=f2e53]:
+      - generic [ref=f2e54]:
+        - generic [ref=f2e55]:
+          - text: Como fazemos
+          - heading "Tecnologia, estratégia e personalização" [level=2] [ref=f2e56]
+          - generic [ref=f2e57]:
+            - paragraph [ref=f2e58]: A aromatização profissional é realizada por equipamentos que dispersam as fragrâncias de maneira uniforme e constante pelo ambiente.
+            - paragraph [ref=f2e59]: Conectados por Wi-Fi e controlados por aplicativo, eles permitem ajustes precisos de intensidade, horários de funcionamento e potência conforme o fluxo de pessoas.
+          - list [ref=f2e60]:
+            - listitem [ref=f2e61]: Controle por aplicativo
+            - listitem [ref=f2e63]: Conexão Wi-Fi
+            - listitem [ref=f2e65]: Programação de horários
+            - listitem [ref=f2e67]: Ajuste de intensidade
+            - listitem [ref=f2e69]: Distribuição uniforme da fragrância
+            - listitem [ref=f2e71]: Equipamentos para diferentes dimensões de ambientes
+            - listitem [ref=f2e73]: Implantação e acompanhamento profissional
+        - generic [ref=f2e76]:
+          - img "Aromatizador profissional EMIDÊ integrado a um painel de madeira" [ref=f2e77]
+          - paragraph [ref=f2e79]: Controle preciso para cada ambiente
+      - generic [ref=f2e80]:
+        - generic [ref=f2e81]:
+          - text: Soluções da EMIDÊ
+          - heading "Estratégias olfativas para empresas, marcas e residências" [level=2] [ref=f2e82]
+        - generic [ref=f2e83]:
+          - article [ref=f2e85]:
+            - img "Aromatizador profissional EMIDÊ instalado em um painel de madeira" [ref=f2e87]
+            - generic [ref=f2e88]:
+              - generic [ref=f2e89]: Linha Business
+              - heading "Estratégia olfativa para marcas e empresas" [level=3] [ref=f2e90]
+              - paragraph [ref=f2e91]: Soluções profissionais com equipamentos Wi-Fi para lojas, hotéis, clínicas, escritórios, eventos e outros ambientes comerciais.
+              - paragraph [ref=f2e92]: Um projeto orientado por experiência do cliente, branding, percepção de valor e coerência entre marca e espaço.
+              - link "Quero aromatizar minha empresa" [ref=f2e94] [cursor=pointer]:
+                - /url: https://wa.me/5513991504516?text=Ol%C3%A1%2C%20EMID%C3%8A!%20Gostaria%20de%20uma%20proposta%20de%20aromatiza%C3%A7%C3%A3o%20profissional%20para%20o%20meu%20espa%C3%A7o.%0A%0ATipo%20de%20ambiente%3A%0AMetragem%20aproximada%3A%0ACidade%3A
+          - article [ref=f2e98]:
+            - img "Difusor e sabonete líquido EMIDÊ em composição de madeira clara" [ref=f2e100]
+            - generic [ref=f2e101]:
+              - generic [ref=f2e102]: Linha Home
+              - heading "A experiência olfativa dentro do lar" [level=3] [ref=f2e103]
+              - paragraph [ref=f2e104]: Home sprays, difusores e produtos para manter a conexão emocional com a fragrância no cotidiano.
+              - paragraph [ref=f2e105]: Formatos pensados para integrar aroma, cuidado e presença visual aos diferentes ambientes da casa.
+              - link "Conhecer a Linha Home" [ref=f2e107] [cursor=pointer]:
+                - /url: /#produtos
+    - generic [ref=f2e109]:
+      - generic [ref=f2e110]:
+        - text: O impacto do marketing olfativo
+        - heading "Uma experiência que influencia percepção, comportamento e decisão" [level=2] [ref=f2e111]
+        - paragraph [ref=f2e112]: O marketing olfativo não é apenas um detalhe decorativo. É uma ferramenta estratégica capaz de orientar a leitura emocional de um espaço e a maneira como o público percebe uma marca.
+      - generic [ref=f2e113]:
+        - article [ref=f2e115]:
+          - text: "01"
+          - heading "Percepção de valor" [level=3] [ref=f2e116]
+          - paragraph [ref=f2e117]: Notas escolhidas de maneira intencional reforçam a leitura de qualidade, cuidado e exclusividade de produtos, serviços e ambientes.
+        - article [ref=f2e119]:
+          - text: "02"
+          - heading "Experiência de compra" [level=3] [ref=f2e120]
+          - paragraph [ref=f2e121]: A fragrância integra a atmosfera do espaço e pode favorecer uma permanência mais confortável e uma experiência de compra mais consistente.
+        - article [ref=f2e123]:
+          - text: "03"
+          - heading "Fidelização e recompra" [level=3] [ref=f2e124]
+          - paragraph [ref=f2e125]: A relação entre olfato e memória ajuda o público a reconhecer, recordar e se reconectar emocionalmente com a marca.
+    - generic [ref=f2e127]:
+      - generic [ref=f2e128]:
+        - img "Difusor de vidro EMIDÊ com fragrância âmbar e varetas pretas" [ref=f2e131]
+        - generic [ref=f2e133]:
+          - text: Fragrâncias autorais
+          - heading "A assinatura da sua marca" [level=2] [ref=f2e134]
+          - generic [ref=f2e135]:
+            - paragraph [ref=f2e136]: Não trabalhamos apenas com cheiros prontos.
+            - paragraph [ref=f2e137]: Criamos uma pirâmide olfativa exclusiva que traduz a identidade, a personalidade e os objetivos da sua marca ou do seu projeto arquitetônico.
+            - paragraph [ref=f2e138]: Cada fragrância é desenvolvida para provocar sensações específicas, fortalecer o posicionamento e criar uma conexão emocional verdadeira com o público.
+          - list [ref=f2e139]:
+            - listitem [ref=f2e140]: Identidade
+            - listitem [ref=f2e141]: Emoção
+            - listitem [ref=f2e142]: Exclusividade
+          - link "Criar uma fragrância exclusiva" [ref=f2e143] [cursor=pointer]:
+            - /url: https://wa.me/5513991504516?text=Ol%C3%A1%2C%20EMID%C3%8A!%20Gostaria%20de%20uma%20proposta%20de%20aromatiza%C3%A7%C3%A3o%20profissional%20para%20o%20meu%20espa%C3%A7o.%0A%0ATipo%20de%20ambiente%3A%0AMetragem%20aproximada%3A%0ACidade%3A
+      - generic [ref=f2e146]:
+        - generic [ref=f2e147]:
+          - text: Processo criativo
+          - heading "Como criamos uma fragrância exclusiva" [level=2] [ref=f2e148]
+        - generic [ref=f2e149]:
+          - article [ref=f2e151]:
+            - generic [ref=f2e152]: Etapa 01
+            - heading "Compreensão da identidade e dos objetivos" [level=3] [ref=f2e153]
+            - paragraph [ref=f2e154]: A jornada começa com uma imersão na essência da marca e na experiência que ela deseja proporcionar.
+            - list [ref=f2e155]:
+              - listitem [ref=f2e156]:
+                - generic [ref=f2e157]: —
+                - text: Identidade visual e proposta de valor
+              - listitem [ref=f2e158]:
+                - generic [ref=f2e159]: —
+                - text: Público e emoções desejadas
+              - listitem [ref=f2e160]:
+                - generic [ref=f2e161]: —
+                - text: Características e pontos de uso no ambiente
+          - article [ref=f2e163]:
+            - generic [ref=f2e164]: Etapa 02
+            - heading "Desenvolvimento olfativo personalizado" [level=3] [ref=f2e165]
+            - paragraph [ref=f2e166]: As informações do briefing orientam a construção de uma pirâmide olfativa exclusiva e seus ciclos de avaliação.
+            - list [ref=f2e167]:
+              - listitem [ref=f2e168]:
+                - generic [ref=f2e169]: —
+                - text: Construção da pirâmide olfativa
+              - listitem [ref=f2e170]:
+                - generic [ref=f2e171]: —
+                - text: Desenvolvimento e testes
+              - listitem [ref=f2e172]:
+                - generic [ref=f2e173]: —
+                - text: Protótipos, amostras e avaliação
+          - article [ref=f2e175]:
+            - generic [ref=f2e176]: Etapa 03
+            - heading "Produção e implantação" [level=3] [ref=f2e177]
+            - paragraph [ref=f2e178]: Após a aprovação, a essência é produzida e o sistema é configurado para a realidade do espaço.
+            - list [ref=f2e179]:
+              - listitem [ref=f2e180]:
+                - generic [ref=f2e181]: —
+                - text: Produção personalizada da essência
+              - listitem [ref=f2e182]:
+                - generic [ref=f2e183]: —
+                - text: Instalação e configuração dos equipamentos
+              - listitem [ref=f2e184]:
+                - generic [ref=f2e185]: —
+                - text: Treinamento e acompanhamento da implantação
+    - generic [ref=f2e187]:
+      - generic [ref=f2e188]:
+        - generic [ref=f2e189]:
+          - text: Produtos personalizados
+          - heading "Sua marca presente em cada detalhe" [level=2] [ref=f2e190]
+          - paragraph [ref=f2e191]: Desenvolvemos produtos personalizados com a identidade visual e a fragrância exclusiva da sua empresa.
+          - paragraph [ref=f2e192]: Eles podem integrar o ambiente, ser vendidos aos clientes ou oferecidos como presentes institucionais.
+          - link "Conhecer os produtos personalizados" [ref=f2e193] [cursor=pointer]:
+            - /url: https://wa.me/5513991504516?text=Ol%C3%A1%2C%20EMID%C3%8A!%20Gostaria%20de%20uma%20proposta%20de%20aromatiza%C3%A7%C3%A3o%20profissional%20para%20o%20meu%20espa%C3%A7o.%0A%0ATipo%20de%20ambiente%3A%0AMetragem%20aproximada%3A%0ACidade%3A
+        - list [ref=f2e197]:
+          - listitem [ref=f2e198]: Aromatizador de ambientes
+          - listitem [ref=f2e199]: Home spray
+          - listitem [ref=f2e200]: Água para tecidos
+          - listitem [ref=f2e201]: Kit lavabo
+          - listitem [ref=f2e202]: Álcool em gel
+          - listitem [ref=f2e203]: Sabonete líquido
+          - listitem [ref=f2e204]: Aromatizador automotivo
+      - generic [ref=f2e205]:
+        - img "Difusor EMIDÊ personalizado em frasco de vidro" [ref=f2e208]
+        - img "Home spray EMIDÊ personalizado" [ref=f2e211]
+        - img "Sabonete líquido perolado EMIDÊ" [ref=f2e214]
+    - generic [ref=f2e216]:
+      - generic [ref=f2e217]:
+        - text: Segmentos atendidos
+        - heading "Inteligência olfativa para diferentes experiências" [level=2] [ref=f2e218]
+        - paragraph [ref=f2e219]: Cada projeto considera o comportamento do público, as dimensões do ambiente e a experiência que a marca deseja construir.
+      - list [ref=f2e221]:
+        - listitem [ref=f2e222]: Clubes
+        - listitem [ref=f2e223]: Empresas e escritórios
+        - listitem [ref=f2e224]: Arquitetos
+        - listitem [ref=f2e225]: Lojas de móveis planejados
+        - listitem [ref=f2e226]: Barbearias
+        - listitem [ref=f2e227]: Salões de beleza
+        - listitem [ref=f2e228]: Clínicas
+        - listitem [ref=f2e229]: Igrejas
+        - listitem [ref=f2e230]: Hospitais veterinários
+        - listitem [ref=f2e231]: Hotéis
+        - listitem [ref=f2e232]: Condomínios
+        - listitem [ref=f2e233]: Lojas de roupas
+        - listitem [ref=f2e234]: Hospitais
+        - listitem [ref=f2e235]: Restaurantes
+        - listitem [ref=f2e236]: Construtoras
+        - listitem [ref=f2e237]: Academias
+        - listitem [ref=f2e238]: Imobiliárias
+        - listitem [ref=f2e239]: Lavanderias
+        - listitem [ref=f2e240]: Eventos
+        - listitem [ref=f2e241]: Concessionárias
+        - listitem [ref=f2e242]: Residências
+    - generic [ref=f2e244]:
+      - generic [ref=f2e245]:
+        - text: Cases de sucesso
+        - heading "Estratégia aplicada a desafios reais" [level=2] [ref=f2e246]
+        - paragraph [ref=f2e247]: Projetos para diferentes segmentos mostram como identidade, tecnologia e implantação técnica trabalham juntas.
+      - generic [ref=f2e248]:
+        - article [ref=f2e250]:
+          - generic [ref=f2e251]: Case 01
+          - heading "Doin Motors" [level=3] [ref=f2e252]
+          - generic [ref=f2e253]:
+            - heading "O desafio" [level=4] [ref=f2e254]
+            - paragraph [ref=f2e255]: Criar um diferencial para o ambiente por meio de uma fragrância única, exclusiva e imponente, capaz de gerar conexão com os clientes.
+          - generic [ref=f2e256]:
+            - heading "A solução" [level=4] [ref=f2e257]
+            - paragraph [ref=f2e258]: Desenvolvemos uma fragrância baseada em acolhimento, sofisticação e imponência, reforçando a personalidade da marca e a experiência na concessionária.
+        - article [ref=f2e260]:
+          - generic [ref=f2e261]: Case 02
+          - heading "Clinvet Hospital Veterinário" [level=3] [ref=f2e262]
+          - generic [ref=f2e263]:
+            - heading "O desafio" [level=4] [ref=f2e264]
+            - paragraph [ref=f2e265]: Equilibrar a identidade sensorial da marca com o controle de odores em áreas críticas, preservando a sensação de acolhimento.
+          - generic [ref=f2e266]:
+            - heading "A solução" [level=4] [ref=f2e267]
+            - paragraph [ref=f2e268]: Criamos uma fragrância exclusiva voltada a cuidado, confiança e profissionalismo, combinada a uma solução técnica de neutralização para áreas sensíveis.
+        - article [ref=f2e270]:
+          - generic [ref=f2e271]: Case 03
+          - heading "Michael Kors" [level=3] [ref=f2e272]
+          - generic [ref=f2e273]:
+            - heading "O desafio" [level=4] [ref=f2e274]
+            - paragraph [ref=f2e275]: Preservar a experiência sensorial de uma marca sofisticada em um ambiente impactado por odores externos.
+          - generic [ref=f2e276]:
+            - heading "A solução" [level=4] [ref=f2e277]
+            - paragraph [ref=f2e278]: Implementamos uma barreira olfativa por meio do posicionamento técnico dos equipamentos, protegendo o ambiente e reforçando a presença da marca desde o primeiro contato.
+      - generic [ref=f2e279]:
+        - generic [ref=f2e280]:
+          - text: Marcas que confiam na EMIDÊ
+          - heading "Experiências memoráveis começam com uma estratégia coerente" [level=2] [ref=f2e281]
+          - paragraph [ref=f2e282]: Empresas de diferentes segmentos utilizam a inteligência olfativa para qualificar seus ambientes e fortalecer sua presença.
+        - link "Quero fazer parte dessas marcas" [ref=f2e284] [cursor=pointer]:
+          - /url: https://wa.me/5513991504516?text=Ol%C3%A1%2C%20EMID%C3%8A!%20Gostaria%20de%20uma%20proposta%20de%20aromatiza%C3%A7%C3%A3o%20profissional%20para%20o%20meu%20espa%C3%A7o.%0A%0ATipo%20de%20ambiente%3A%0AMetragem%20aproximada%3A%0ACidade%3A
+    - generic [ref=f2e288]:
+      - generic [ref=f2e289]:
+        - text: Perguntas frequentes
+        - heading "Informação para decidir com segurança" [level=2] [ref=f2e290]
+      - generic [ref=f2e291]:
+        - generic [ref=f2e292]:
+          - term [ref=f2e293]:
+            - button "O cheiro pode causar alergia?" [expanded] [ref=f2e294] [cursor=pointer]
+          - definition [ref=f2e299]:
+            - paragraph [ref=f2e301]: As essências são produzidas seguindo padrões de segurança e a especificação informada pela EMIDÊ é hipoalergênica. A intensidade também é dimensionada para cada ambiente.
+        - generic [ref=f2e302]:
+          - term [ref=f2e303]:
+            - button "A máquina consome muita energia?" [ref=f2e304] [cursor=pointer]
+          - definition:
+            - paragraph [ref=f2e309]: Não. Segundo a especificação dos equipamentos EMIDÊ, o consumo é comparável ao de um roteador de internet.
+        - generic [ref=f2e310]:
+          - term [ref=f2e311]:
+            - button "Como controlar a intensidade da fragrância?" [ref=f2e312] [cursor=pointer]
+          - definition:
+            - paragraph [ref=f2e317]: O controle é realizado por aplicativo conectado via Wi-Fi. É possível programar horários e ajustar a potência conforme o tamanho do ambiente e o fluxo de pessoas.
+        - generic [ref=f2e318]:
+          - term [ref=f2e319]:
+            - button "A EMIDÊ desenvolve fragrâncias exclusivas?" [ref=f2e320] [cursor=pointer]
+          - definition:
+            - paragraph [ref=f2e325]: Sim. Criamos fragrâncias autorais com base na identidade, no público e nas emoções que cada marca deseja transmitir.
+        - generic [ref=f2e326]:
+          - term [ref=f2e327]:
+            - button "É possível personalizar os produtos com a minha marca?" [ref=f2e328] [cursor=pointer]
+          - definition:
+            - paragraph [ref=f2e333]: Sim. Aromatizadores, home sprays, água para tecidos, kits de lavabo e outros produtos podem receber a identidade visual e a fragrância da empresa.
+    - generic [ref=f2e335]:
+      - generic [ref=f2e336]:
+        - text: Vamos conversar
+        - heading "Vamos desenhar a estratégia olfativa do seu próximo projeto?" [level=2] [ref=f2e337]
+        - paragraph [ref=f2e338]: Grandes negócios começam com um bom café e terminam com um aroma inesquecível.
+        - paragraph [ref=f2e339]: Transforme seu ambiente em uma experiência capaz de comunicar valor, gerar conexão e permanecer na memória dos seus clientes.
+        - generic [ref=f2e340]:
+          - link "Falar com um especialista" [ref=f2e341] [cursor=pointer]:
+            - /url: https://wa.me/5513991504516?text=Ol%C3%A1%2C%20EMID%C3%8A!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es.
+          - link "Solicitar uma apresentação" [ref=f2e344] [cursor=pointer]:
+            - /url: mailto:contato@emideinteligenciaolfativa.com.br?subject=Solicitação de apresentação EMIDÊ
+      - generic [ref=f2e346]:
+        - paragraph [ref=f2e347]: Contato
+        - list [ref=f2e348]:
+          - listitem [ref=f2e349]:
+            - link "(13) 99150-4516" [ref=f2e350] [cursor=pointer]:
+              - /url: https://wa.me/5513991504516
+          - listitem [ref=f2e351]:
+            - link "(13) 99167-5615" [ref=f2e352] [cursor=pointer]:
+              - /url: https://wa.me/5513991675615
+        - paragraph [ref=f2e353]: Av. Bernardino de Campos, 18 — Sala 408Vila Belmiro — Santos/SP
+  - contentinfo [ref=f2e354]:
+    - generic [ref=f2e355]:
+      - generic [ref=f2e356]:
+        - generic [ref=f2e357]:
+          - img "EMIDÊ — Inteligência Olfativa" [ref=f2e358]
+          - paragraph [ref=f2e359]: Inteligência olfativa para transformar marcas e ambientes em experiências memoráveis.
+        - generic [ref=f2e360]:
+          - heading "Empresa" [level=3] [ref=f2e361]
+          - list [ref=f2e362]:
+            - listitem [ref=f2e363]:
+              - link "Sobre a EMIDÊ" [ref=f2e364] [cursor=pointer]:
+                - /url: /#sobre
+            - listitem [ref=f2e365]:
+              - link "Soluções" [ref=f2e366] [cursor=pointer]:
+                - /url: /#solucoes
+            - listitem [ref=f2e367]:
+              - link "Fragrâncias exclusivas" [ref=f2e368] [cursor=pointer]:
+                - /url: /#fragrancias
+            - listitem [ref=f2e369]:
+              - link "Cases" [ref=f2e370] [cursor=pointer]:
+                - /url: /#cases
+            - listitem [ref=f2e371]:
+              - link "Produtos personalizados" [ref=f2e372] [cursor=pointer]:
+                - /url: /#produtos
+            - listitem [ref=f2e373]:
+              - link "Perguntas frequentes" [ref=f2e374] [cursor=pointer]:
+                - /url: /#faq
+        - generic [ref=f2e375]:
+          - heading "Contato" [level=3] [ref=f2e376]
+          - list [ref=f2e377]:
+            - listitem [ref=f2e378]:
+              - link "WhatsApp (13) 99150-4516" [ref=f2e379] [cursor=pointer]:
+                - /url: https://wa.me/5513991504516
+            - listitem [ref=f2e380]:
+              - link "WhatsApp (13) 99167-5615" [ref=f2e381] [cursor=pointer]:
+                - /url: https://wa.me/5513991675615
+            - listitem [ref=f2e382]:
+              - link "Instagram" [ref=f2e383] [cursor=pointer]:
+                - /url: https://www.instagram.com/emide.oficial/
+            - listitem [ref=f2e384]: Av. Bernardino de Campos, 18 — Sala 408Vila Belmiro — Santos/SP
+            - listitem [ref=f2e385]:
+              - link "contato@emideinteligenciaolfativa.com.br" [ref=f2e386] [cursor=pointer]:
+                - /url: mailto:contato@emideinteligenciaolfativa.com.br
+      - generic [ref=f2e387]:
+        - generic [ref=f2e388]: © 2026 EMIDÊ
+        - generic [ref=f2e389]: Todos os direitos reservados

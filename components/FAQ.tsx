@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "@phosphor-icons/react";
-import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
 
 const ITEMS = [
   {
@@ -40,7 +38,6 @@ const ITEMS = [
 
 export function FAQ() {
   const [openId, setOpenId] = useState<string | null>(ITEMS[0].id);
-  const prefersReducedMotion = useHydratedReducedMotion();
 
   return (
     <dl className="max-w-[820px]">
@@ -62,41 +59,32 @@ export function FAQ() {
                 <span>
                   {item.question}
                 </span>
-                <motion.span
-                  animate={{ rotate: isOpen ? 45 : 0 }}
-                  transition={
-                    prefersReducedMotion
-                      ? { duration: 0 }
-                      : { type: "spring", stiffness: 200, damping: 20 }
-                  }
-                  className="shrink-0 text-forest"
+                <span
                   aria-hidden="true"
+                  className={`shrink-0 text-forest transition-transform duration-300 ease-smooth ${
+                    isOpen ? "rotate-45" : ""
+                  }`}
                 >
                   <Plus size={22} weight="light" />
-                </motion.span>
+                </span>
               </button>
             </dt>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.dd
-                  id={panelId}
-                  aria-labelledby={buttonId}
-                  initial={prefersReducedMotion ? false : { height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={prefersReducedMotion ? undefined : { height: 0, opacity: 0 }}
-                  transition={
-                    prefersReducedMotion
-                      ? { duration: 0 }
-                      : { duration: 0.25, ease: [0.16, 1, 0.3, 1] }
-                  }
-                  className="overflow-hidden"
-                >
-                  <p className="max-w-[680px] pb-7 text-sm text-ink">
-                    {item.answer}
-                  </p>
-                </motion.dd>
-              )}
-            </AnimatePresence>
+            {/* grid-template-rows 0fr→1fr anima a altura sem medir o conteúdo.
+                O painel fica sempre no DOM para aria-controls apontar para ele. */}
+            <dd
+              id={panelId}
+              aria-labelledby={buttonId}
+              inert={!isOpen}
+              className={`grid transition-[grid-template-rows,opacity] duration-300 ease-smooth ${
+                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <p className="max-w-[680px] pb-7 text-sm text-ink">
+                  {item.answer}
+                </p>
+              </div>
+            </dd>
           </div>
         );
       })}

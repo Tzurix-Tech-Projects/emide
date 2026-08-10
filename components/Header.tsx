@@ -105,7 +105,7 @@ export function Header() {
                 href={link.href}
                 aria-current={isActive ? "location" : undefined}
                 onClick={() => setActiveSection(sectionId)}
-                className={`relative flex min-h-11 min-w-11 items-center justify-center py-1 transition-colors after:absolute after:bottom-1 after:left-0 after:h-px after:bg-gold-dark after:transition-all after:duration-300 hover:text-forest hover:after:w-full ${
+                className={`relative flex min-h-11 min-w-11 items-center justify-center py-1 transition-colors after:absolute after:bottom-1 after:left-0 after:h-px after:bg-gold-dark after:transition-all after:duration-300 hover:text-forest ${
                   isActive ? "text-forest after:w-full" : "after:w-0"
                 }`}
               >

@@ -2,7 +2,7 @@
 
 Site institucional de perfumaria de ambientes com uma loja preservada atrás de
 feature flag, checkout via WhatsApp e painel administrativo. Next.js 15 (App
-Router), TypeScript, Tailwind, Framer Motion e Supabase.
+Router), TypeScript, Tailwind, GSAP e Supabase.
 
 ## Rodar localmente
 
@@ -67,6 +67,8 @@ proposta B2B.
 - **Logos oficiais**: `public/brand/emide-logo-dark.png`,
   `emide-logo-light.png` e `emide-symbol.png`.
 
+- **Vídeo do hero**: `public/video/hero.mp4`, `hero.webm` e `hero-poster.jpg`.
+  Sem áudio, em loop e decorativo.
 - **Fotos institucionais**: seleção do lançamento em
   `public/images/institucional/`.
 - **Fotos do catálogo**: curadoria dos oito SKUs em `public/produtos/`, com

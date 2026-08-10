@@ -42,13 +42,30 @@ sobre branco e como botão com texto branco. Em fundo claro, ações e texto
 funcional usam `forest`; dourados ficam em linhas, detalhes não textuais ou
 texto claro sobre superfícies escuras com contraste medido.
 
-Tipografia: `font-display` = Hermione 400; `font-sans` = Articulat CF Light 300.
-O arquivo `HERMIONE-DEMO` contém somente A-Z e não cobre acentos. Nos títulos,
-`BrandText` aplica Hermione apenas às palavras sem acento. Quando uma palavra
-contém qualquer caractere acentuado, a palavra inteira usa Articulat; nunca há
-troca de fonte no meio da palavra. Títulos não processados por `BrandText`,
-preços, números e textos corridos usam somente Articulat. Line-height 1.1 em
-título e 1.8 em corpo; síntese artificial de pesos fica desativada.
+Tipografia: `font-sans` = Articulat CF Light 300 em tudo; `font-display` =
+Hermione 400 apenas como acento.
+
+O arquivo entregue é o `HERMIONE-DEMO`: **29 codepoints, só A-Z maiúsculo**, sem
+minúsculas, dígitos ou acentos. Por isso a Hermione **não** é aplicada
+automaticamente. Antes, cada palavra sem acento virava serif e cada palavra
+acentuada virava sans, o que fazia o título alternar duas fontes sem lógica
+visível para quem lê. Hoje a regra é:
+
+- O título inteiro é Articulat.
+- `DisplayAccent` marca **um** trecho escolhido a dedo para receber Hermione, e
+  só aplica se o texto couber em A-Z; fora disso continua em Articulat. Nunca há
+  troca de fonte no meio da palavra.
+- Preços, números e texto corrido usam somente Articulat, com `.tabular` onde o
+  valor muda (preço, quantidade, telefone).
+
+Escala: use os tamanhos fluidos `text-display-xl/lg/md/sm` e `text-lead`, que
+interpolam por `clamp()` entre 375px e 1440px em vez de saltar por breakpoint.
+
+Entrelinha: títulos em caixa alta em português precisam de mais respiro que o
+usual, porque Ê, Ã e Ç sobem acima da altura de caixa. Os tokens já trazem
+line-height entre 1.12 e 1.22; não aperte abaixo disso ou os acentos são
+cortados — especialmente dentro de máscaras de animação. Corpo 1.8. Síntese
+artificial de pesos fica desativada.
 
 ## 4. Logos oficiais
 
@@ -56,6 +73,10 @@ título e 1.8 em corpo; síntese artificial de pesos fica desativada.
 - Versão clara: `public/brand/emide-logo-light.png`.
 - Símbolo fornecido: `public/brand/emide-symbol.png`.
 - Não redesenhar, recolorir, distorcer ou remontar o lettering.
+- **Pendência:** a versão clara tem fundo verde chapado, não transparente, e por
+  isso vira uma placa verde sobre qualquer superfície escura. Hoje o site usa só
+  a versão escura. Para aplicar o logo sobre fundo escuro, falta o lockup claro
+  em PNG/SVG com fundo transparente.
 - Sempre preservar proporção, área de respiro e legibilidade.
 
 ## 5. Fotografia
@@ -66,14 +87,35 @@ título e 1.8 em corpo; síntese artificial de pesos fica desativada.
   solução e uma composição na seção sobre.
 - Não usar artes com preço ou texto promocional embutido em seções permanentes.
 - Imagens abaixo da dobra usam `next/image`, proporção reservada e carregamento
-  tardio. O hero é a única foto prioritária.
+  tardio.
+- **Vídeo do hero:** exportar sem áudio, com `-movflags +faststart`, em MP4
+  (H.264) e WebM (VP9), mais um pôster JPG do primeiro segundo. Manter cada
+  arquivo abaixo de ~2 MB.
+- **Pendência:** o vídeo atual tem a marca d'água do gerador (estrela de quatro
+  pontas) no canto inferior direito, por volta de x 1105 / y 690 em 1280×720.
+  O enquadramento a esconde em 1440px e no mobile, mas ela aparece em telas
+  intermediárias (1024×768, por exemplo). Precisa de uma exportação limpa ou de
+  autorização para reenquadrar.
 
 ## 6. Regras aplicadas
 
 - **Sem emoji.** Ícones vêm de `@phosphor-icons/react`, weight `light`, e são
   `aria-hidden` quando acompanham texto.
-- **Hero com texto à esquerda e cena ambiental oficial à direita.** Não
-  centralize todo o conteúdo nem use arte promocional com preço como hero.
+- **Hero full-bleed escuro, texto à esquerda.** O fundo é um vídeo em loop
+  (`public/video/hero.mp4` e `.webm`), mudo, sem controles e decorativo, sob
+  duas camadas de escurecimento: uma uniforme e um degradê que abre contraste do
+  lado do texto. A cena é clara, então o degradê precisa segurar mais que sobre
+  uma foto escura. Não centralize o conteúdo nem use arte promocional com preço
+  como hero.
+- **O vídeo nunca toca sozinho com movimento reduzido.** Não há atributo
+  `autoplay`: o `play()` só é chamado depois de checar
+  `prefers-reduced-motion`, e o pôster cobre o caso em que o navegador recusa.
+- **O hero é a única exceção de caixa.** O título dele é caixa baixa
+  (`normal-case`), conforme a referência aprovada; as demais seções seguem em
+  caixa alta. Uma palavra recebe o dourado `gold` como ênfase.
+- **O hero começa abaixo do header**, com margem superior equivalente à altura
+  dele. A foto não passa por trás da navegação, e o header segue com o logo
+  escuro sobre fundo claro em todas as páginas.
 - **Sem fileira de três cards iguais.** Listas com `divide-y`, grades
   assimétricas ou numeração editorial.
 - **Cards só quando elevam hierarquia.** Produto usa sombra neutra em carvão,
@@ -88,13 +130,19 @@ título e 1.8 em corpo; síntese artificial de pesos fica desativada.
 - **Foco visível**: `:focus-visible` global desenha um anel com
   `var(--focus-ring)`. Seções escuras recebem a classe `.on-dark`, que troca o
   anel para `gold-light`. Nunca use `outline-none` sem substituir o indicador.
-- **Movimento**: só `transform` e `opacity`, isolado em client leaves
-  (`Reveal`, `Hero`, `ScrollProgress`, `ProductCard`, `CartDrawer`, `FAQ`). O
-  hero usa paralaxe suave; seções entram de forma direcional; a barra superior
-  indica progresso de leitura; cards recebem elevação somente em dispositivos
-  com hover. Todo componente animado respeita movimento reduzido e renderiza o
-  conteúdo já visível quando a preferência está ativa. Microinterações ficam
-  entre 150–300ms e transições complexas até 480ms. Sem animação infinita.
+- **Movimento**: GSAP com ScrollTrigger é a única biblioteca de animação. Só
+  `transform` e `opacity`, isolado em client leaves (`Reveal`, `Hero`,
+  `ScrollProgress`, `ProductCard`, `CartDrawer`). O hero usa paralaxe suave e
+  revelação do título linha a linha com `SplitText`; seções entram de forma
+  direcional; a barra superior indica progresso de leitura.
+  - Toda animação passa pelo hook `useGsap`, que roda dentro de
+    `gsap.matchMedia("(prefers-reduced-motion: no-preference)")`. Com movimento
+    reduzido o callback não roda: nada é animado e o DOM nem é tocado.
+  - O conteúdo nunca depende da animação para existir. O HTML do servidor sai
+    visível e a regra `[data-reveal]` do CSS garante isso mesmo sem JavaScript.
+  - Abrir/fechar simples (FAQ, estados de hover) fica em CSS, não em JS.
+  - Microinterações entre 150–300ms, transições complexas até 480ms, saída mais
+    curta que a entrada. Sem animação infinita.
 - **Estados**: onde há dados, existem vazio, carregando e erro. Campos têm
   rótulo visível acima, não só placeholder. Botão desativado explica o motivo.
 - **Mobile**: `min-h-[100dvh]`, nunca `h-screen`. Grades caem para uma coluna

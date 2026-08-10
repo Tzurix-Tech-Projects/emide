@@ -12,7 +12,6 @@ import { SITE_NAME, SITE_URL, STORE_ENABLED } from "@/lib/site";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import { ProductActions } from "./ProductActions";
 import { ProductPhoto } from "./ProductPhoto";
-import { BrandText } from "@/components/BrandText";
 
 export async function generateStaticParams() {
   // Sem chaves do Supabase o build não pode consultar o catálogo. Devolver
@@ -116,7 +115,7 @@ export default async function ProductPage({
             <div className="flex flex-col justify-center">
               <span className="eyebrow">{categoryLabel(product.category)}</span>
               <h1 className="my-4 text-4xl font-normal md:text-5xl">
-                <BrandText>{product.name}</BrandText>
+                {product.name}
               </h1>
               <p className="mb-6 max-w-[46ch] text-base text-ink">
                 {product.description}

@@ -1,24 +1,32 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
-import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
+import { useGsap } from "@/lib/use-gsap";
+import { gsap } from "@/lib/gsap";
 
+/** Barra fina de progresso de leitura no topo. Puramente decorativa. */
 export function ScrollProgress() {
-  const prefersReducedMotion = useHydratedReducedMotion();
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 140,
-    damping: 28,
-    mass: 0.22,
+  const ref = useGsap<HTMLDivElement>((root) => {
+    gsap.fromTo(
+      root,
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.3,
+        },
+      }
+    );
   });
 
-  if (prefersReducedMotion) return null;
-
   return (
-    <motion.div
+    <div
+      ref={ref}
       aria-hidden="true"
-      className="fixed inset-x-0 top-0 z-[90] h-0.5 origin-left bg-gradient-to-r from-gold-dark via-gold to-gold-light"
-      style={{ scaleX }}
+      className="fixed inset-x-0 top-0 z-[90] h-0.5 origin-left scale-x-0 bg-gradient-to-r from-gold-dark via-gold to-gold-light"
     />
   );
 }

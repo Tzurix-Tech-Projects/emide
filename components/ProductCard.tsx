@@ -3,12 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { categoryLabel, type Product } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 import { buildQuoteUrl, money } from "@/lib/whatsapp";
-import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
-import { BrandText } from "@/components/BrandText";
+import { useGsap } from "@/lib/use-gsap";
+import { gsap, EASE, DURATION } from "@/lib/gsap";
 
 export function ProductCard({
   product,
@@ -18,26 +17,25 @@ export function ProductCard({
   index?: number;
 }) {
   const { add } = useCart();
-  const prefersReducedMotion = useHydratedReducedMotion();
   const [imageFailed, setImageFailed] = useState(false);
 
-  const entrance = prefersReducedMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 28 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, margin: "-60px" },
-        transition: {
-          duration: 0.4,
-          ease: [0.16, 1, 0.3, 1],
-          delay: (index % 3) * 0.08,
-        },
-      };
+  // O atraso segue a coluna, não a posição na lista: a linha inteira entra
+  // da esquerda para a direita em vez de cascatear a grade toda.
+  const cardRef = useGsap<HTMLElement>((root) => {
+    gsap.from(root, {
+      opacity: 0,
+      y: 28,
+      duration: DURATION.base,
+      ease: EASE,
+      delay: (index % 3) * 0.08,
+      scrollTrigger: { trigger: root, start: "top 90%", once: true },
+    });
+  }, [index]);
 
   return (
-    <motion.article
+    <article
+      ref={cardRef}
       data-reveal
-      {...entrance}
       className="group flex flex-col border-b border-r border-line bg-paper transition-shadow duration-300 hover:shadow-[0_20px_50px_-20px_rgba(29,29,27,0.18)]"
     >
       <div className="photo-fallback relative aspect-square overflow-hidden">
@@ -68,7 +66,7 @@ export function ProductCard({
             href={`/produto/${product.slug}`}
             className="transition-colors hover:text-forest"
           >
-            <BrandText>{product.name}</BrandText>
+            {product.name}
           </Link>
         </h3>
         <p className="mb-5 flex-1 text-sm text-ink">{product.description}</p>
@@ -101,6 +99,6 @@ export function ProductCard({
           )}
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 }

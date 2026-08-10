@@ -1,20 +1,25 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { X, Minus, Plus, WhatsappLogo } from "@phosphor-icons/react";
 import { useCart, type CartLine } from "@/lib/cart";
 import { buildOrderUrl, money } from "@/lib/whatsapp";
 import { createOrder, type CustomerInfo } from "@/lib/orders";
-import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
-import { BrandText } from "@/components/BrandText";
+import { gsap, registerGsap, EASE } from "@/lib/gsap";
 
 export function CartDrawer() {
   const { isOpen, close, lines, subtotal, setQty, remove } = useCart();
-  const prefersReducedMotion = useHydratedReducedMotion();
   const panelRef = useRef<HTMLElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
+
+  // O painel continua montado durante a saída para a animação terminar antes
+  // do desmonte; sem isso o drawer sumiria de uma vez ao fechar.
+  const [isMounted, setIsMounted] = useState(isOpen);
+  useEffect(() => {
+    if (isOpen) setIsMounted(true);
+  }, [isOpen]);
 
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
@@ -59,41 +64,70 @@ export function CartDrawer() {
     window.open(buildOrderUrl(lines, customer), "_blank", "noopener,noreferrer");
   };
 
-  const overlayMotion = prefersReducedMotion
-    ? {}
-    : { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } };
+  useLayoutEffect(() => {
+    if (!isMounted) return;
+    const panel = panelRef.current;
+    const overlay = overlayRef.current;
+    if (!panel || !overlay) return;
 
-  const panelMotion = prefersReducedMotion
-    ? {}
-    : {
-        initial: { x: "100%" },
-        animate: { x: 0 },
-        exit: { x: "100%" },
-        transition: { type: "spring" as const, stiffness: 100, damping: 20 },
+    registerGsap();
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (isOpen) {
+      if (reduced) {
+        gsap.set([panel, overlay], { clearProps: "all" });
+        return;
+      }
+      const enter = gsap.timeline();
+      enter
+        .fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: EASE })
+        .fromTo(
+          panel,
+          { xPercent: 100 },
+          { xPercent: 0, duration: 0.45, ease: EASE },
+          0
+        );
+      return () => {
+        enter.kill();
       };
+    }
+
+    // Saída mais curta que a entrada, para o fechamento parecer imediato.
+    if (reduced) {
+      setIsMounted(false);
+      return;
+    }
+    const exit = gsap.timeline({ onComplete: () => setIsMounted(false) });
+    exit
+      .to(overlay, { opacity: 0, duration: 0.22, ease: "power2.in" })
+      .to(panel, { xPercent: 100, duration: 0.3, ease: "power2.in" }, 0);
+
+    return () => {
+      exit.kill();
+    };
+  }, [isOpen, isMounted]);
+
+  if (!isMounted) return null;
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          <motion.div
-            {...overlayMotion}
-            onClick={close}
-            aria-hidden="true"
-            className="fixed inset-0 z-[60] bg-forest/40 backdrop-blur-[2px]"
-          />
-          <motion.aside
-            {...panelMotion}
-            ref={panelRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
-            tabIndex={-1}
-            className="fixed right-0 top-0 z-[70] flex h-full w-[440px] max-w-[90vw] flex-col bg-paper"
-          >
+    <>
+      <div
+        ref={overlayRef}
+        onClick={close}
+        aria-hidden="true"
+        className="fixed inset-0 z-[60] bg-forest/40 backdrop-blur-[2px]"
+      />
+      <aside
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
+        className="fixed right-0 top-0 z-[70] flex h-full w-[440px] max-w-[90vw] flex-col bg-paper"
+      >
             <div className="flex items-center justify-between border-b border-line px-8 py-8">
               <h2 id={titleId} className="text-xl">
-                <BrandText>Seu carrinho</BrandText>
+                Seu carrinho
               </h2>
               <button onClick={close} aria-label="Fechar carrinho">
                 <X size={22} weight="light" aria-hidden="true" />
@@ -123,7 +157,7 @@ export function CartDrawer() {
                       />
                       <div className="flex-1">
                         <h3 className="text-base">
-                          <BrandText>{line.name}</BrandText>
+                          {line.name}
                         </h3>
                         <p className="text-xs text-ink">{line.variant}</p>
                         <p className="mt-1.5 text-sm">
@@ -229,10 +263,8 @@ export function CartDrawer() {
                   Preencha nome e telefone para finalizar.
                 </p>
               )}
-            </div>
-          </motion.aside>
-        </>
-      )}
-    </AnimatePresence>
+        </div>
+      </aside>
+    </>
   );
 }

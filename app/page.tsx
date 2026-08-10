@@ -5,7 +5,6 @@ import { Reveal } from "@/components/Reveal";
 import { ProductCard } from "@/components/ProductCard";
 import { FAQ } from "@/components/FAQ";
 import { B2BQuoteButton, ContactButton } from "@/components/WhatsAppActions";
-import { BrandText } from "@/components/BrandText";
 import {
   CASES,
   CREATIVE_PROCESS,
@@ -61,7 +60,7 @@ export default async function Home() {
           <Reveal delay={0.1} direction="right">
             <span className="eyebrow">O que fazemos</span>
             <h2 className="my-6 text-3xl font-normal sm:text-4xl md:text-5xl">
-              <BrandText>Transformamos a essência da sua marca em uma experiência memorável</BrandText>
+              Transformamos a essência da sua marca em uma experiência memorável
             </h2>
             <div className="max-w-[650px] space-y-5 text-base text-ink">
               <p>
@@ -90,7 +89,7 @@ export default async function Home() {
             <Reveal direction="left">
               <span className="eyebrow">Como fazemos</span>
               <h2 className="my-6 text-3xl font-normal sm:text-4xl md:text-5xl">
-                <BrandText>Tecnologia, estratégia e personalização</BrandText>
+                Tecnologia, estratégia e personalização
               </h2>
               <div className="max-w-[650px] space-y-5 text-base text-ink">
                 <p>
@@ -145,7 +144,7 @@ export default async function Home() {
             <Reveal className="mb-14 max-w-[720px]">
               <span className="eyebrow">Soluções da EMIDÊ</span>
               <h2 className="my-5 text-3xl font-normal sm:text-4xl md:text-5xl">
-                <BrandText>Estratégias olfativas para empresas, marcas e residências</BrandText>
+                Estratégias olfativas para empresas, marcas e residências
               </h2>
             </Reveal>
 
@@ -165,7 +164,7 @@ export default async function Home() {
                     <div className="flex flex-1 flex-col p-8 sm:p-10">
                       <span className="eyebrow">{solution.eyebrow}</span>
                       <h3 className="mb-4 mt-5 text-2xl md:text-3xl">
-                        <BrandText>{solution.title}</BrandText>
+                        {solution.title}
                       </h3>
                       <p className="mb-4 text-base text-ink">
                         {solution.description}
@@ -197,7 +196,7 @@ export default async function Home() {
           <Reveal className="mb-16 max-w-[760px]">
             <span className="eyebrow">O impacto do marketing olfativo</span>
             <h2 className="my-6 text-3xl font-normal text-paper sm:text-4xl md:text-5xl">
-              <BrandText>Uma experiência que influencia percepção, comportamento e decisão</BrandText>
+              Uma experiência que influencia percepção, comportamento e decisão
             </h2>
             <p className="max-w-[680px] text-base text-paper/75">
               O marketing olfativo não é apenas um detalhe decorativo. É uma
@@ -214,7 +213,7 @@ export default async function Home() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3 className="mb-5 mt-5 text-2xl text-paper">
-                    <BrandText>{impact.title}</BrandText>
+                    {impact.title}
                   </h3>
                   <p className="text-sm text-paper/70">{impact.description}</p>
                 </article>
@@ -243,7 +242,7 @@ export default async function Home() {
             <Reveal delay={0.1} direction="right">
               <span className="eyebrow">Fragrâncias autorais</span>
               <h2 className="my-6 text-3xl font-normal sm:text-4xl md:text-5xl">
-                <BrandText>A assinatura da sua marca</BrandText>
+                A assinatura da sua marca
               </h2>
               <div className="max-w-[660px] space-y-5 text-base text-ink">
                 <p>Não trabalhamos apenas com cheiros prontos.</p>
@@ -276,7 +275,7 @@ export default async function Home() {
             <Reveal className="mb-14 max-w-[720px]">
               <span className="eyebrow">Processo criativo</span>
               <h2 className="my-5 text-3xl font-normal sm:text-4xl md:text-5xl">
-                <BrandText>Como criamos uma fragrância exclusiva</BrandText>
+                Como criamos uma fragrância exclusiva
               </h2>
             </Reveal>
 
@@ -288,7 +287,7 @@ export default async function Home() {
                       Etapa {String(index + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mb-5 mt-5 text-xl md:text-2xl">
-                      <BrandText>{stage.title}</BrandText>
+                      {stage.title}
                     </h3>
                     <p className="mb-7 text-sm text-ink">{stage.description}</p>
                     <ul className="space-y-3 border-t border-line pt-6 text-sm text-ink">
@@ -315,7 +314,7 @@ export default async function Home() {
             <Reveal>
               <span className="eyebrow">Produtos personalizados</span>
               <h2 className="my-6 text-3xl font-normal sm:text-4xl md:text-5xl">
-                <BrandText>Sua marca presente em cada detalhe</BrandText>
+                Sua marca presente em cada detalhe
               </h2>
               <p className="mb-5 max-w-[600px] text-base text-ink">
                 Desenvolvemos produtos personalizados com a identidade visual e a
@@ -368,7 +367,7 @@ export default async function Home() {
                 <div className="max-w-[620px]">
                   <span className="eyebrow">Loja EMIDÊ</span>
                   <h2 className="mt-5 text-3xl font-normal md:text-5xl">
-                    <BrandText>Produtos para levar a experiência com você</BrandText>
+                    Produtos para levar a experiência com você
                   </h2>
                 </div>
                 <Link href="/loja" className="btn btn-outline">
@@ -390,7 +389,7 @@ export default async function Home() {
           <Reveal>
             <span className="eyebrow">Segmentos atendidos</span>
             <h2 className="my-5 text-3xl font-normal md:text-5xl">
-              <BrandText>Inteligência olfativa para diferentes experiências</BrandText>
+              Inteligência olfativa para diferentes experiências
             </h2>
             <p className="max-w-[520px] text-base text-ink">
               Cada projeto considera o comportamento do público, as dimensões do
@@ -417,7 +416,7 @@ export default async function Home() {
           <Reveal className="mb-16 max-w-[720px]">
             <span className="eyebrow">Cases de sucesso</span>
             <h2 className="my-5 text-3xl font-normal sm:text-4xl md:text-5xl">
-              <BrandText>Estratégia aplicada a desafios reais</BrandText>
+              Estratégia aplicada a desafios reais
             </h2>
             <p className="text-base text-ink">
               Projetos para diferentes segmentos mostram como identidade,
@@ -433,17 +432,17 @@ export default async function Home() {
                     Case {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3 className="mb-8 mt-5 text-2xl">
-                    <BrandText>{caseItem.client}</BrandText>
+                    {caseItem.client}
                   </h3>
                   <div className="mb-7">
                     <h4 className="mb-3 text-xs text-forest">
-                      <BrandText>O desafio</BrandText>
+                      O desafio
                     </h4>
                     <p className="text-sm text-ink">{caseItem.challenge}</p>
                   </div>
                   <div className="mt-auto border-t border-line pt-7">
                     <h4 className="mb-3 text-xs text-forest">
-                      <BrandText>A solução</BrandText>
+                      A solução
                     </h4>
                     <p className="text-sm text-ink">{caseItem.solution}</p>
                   </div>
@@ -456,7 +455,7 @@ export default async function Home() {
             <div className="mb-8 max-w-[720px] md:mb-0">
               <span className="eyebrow">Marcas que confiam na EMIDÊ</span>
               <h2 className="mb-5 mt-4 text-2xl text-paper md:text-3xl">
-                <BrandText>Experiências memoráveis começam com uma estratégia coerente</BrandText>
+                Experiências memoráveis começam com uma estratégia coerente
               </h2>
               <p className="text-sm text-paper/75">
                 Empresas de diferentes segmentos utilizam a inteligência olfativa
@@ -475,7 +474,7 @@ export default async function Home() {
           <Reveal className="mb-14 max-w-[640px]">
             <span className="eyebrow">Perguntas frequentes</span>
             <h2 className="mt-5 text-3xl font-normal md:text-5xl">
-              <BrandText>Informação para decidir com segurança</BrandText>
+              Informação para decidir com segurança
             </h2>
           </Reveal>
           <FAQ />
@@ -487,7 +486,7 @@ export default async function Home() {
           <Reveal>
             <span className="eyebrow">Vamos conversar</span>
             <h2 className="my-6 text-4xl font-normal text-paper md:text-6xl">
-              Vamos desenhar a <BrandText>estratégia olfativa</BrandText> do seu próximo projeto?
+              Vamos desenhar a estratégia olfativa do seu próximo projeto?
             </h2>
             <p className="mb-5 max-w-[680px] text-base text-paper/75">
               Grandes negócios começam com um bom café e terminam com um aroma

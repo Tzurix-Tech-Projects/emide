@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BrandText } from "@/components/BrandText";
 import { HAS_WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import { CATEGORIES } from "@/lib/products";
 import {
@@ -56,7 +55,7 @@ export function Footer() {
 
           <div>
             <h3 className="mb-5 text-xs uppercase tracking-[0.2em] text-charcoal">
-              <BrandText>Contato</BrandText>
+              Contato
             </h3>
             <ul className="flex flex-col gap-3 text-sm">
               {HAS_WHATSAPP_NUMBER && (
@@ -120,7 +119,7 @@ function FooterColumn({
   return (
     <div>
       <h3 className="mb-5 text-xs uppercase tracking-[0.2em] text-charcoal">
-        <BrandText>{title}</BrandText>
+        {title}
       </h3>
       <ul className="flex flex-col gap-3 text-sm">
         {links.map((link) => (
