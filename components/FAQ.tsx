@@ -4,7 +4,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "@phosphor-icons/react";
 import { useHydratedReducedMotion } from "@/lib/use-hydrated-reduced-motion";
-import { BrandText } from "@/components/BrandText";
 
 const ITEMS = [
   {
