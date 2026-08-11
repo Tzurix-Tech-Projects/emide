@@ -33,7 +33,7 @@ export const SOLUTIONS = [
     description:
       "Soluções profissionais com equipamentos Wi-Fi para lojas, hotéis, clínicas, escritórios, eventos e outros ambientes comerciais.",
     detail:
-      "Um projeto orientado por experiência do cliente, branding, percepção de valor e coerência entre marca e espaço.",
+      "O projeto parte do fluxo de pessoas, da metragem e do que a marca quer comunicar no ponto de contato.",
     image: "/images/institucional/aromatizacao-profissional.jpg",
     alt: "Aromatizador profissional EMIDÊ instalado em um painel de madeira",
   },
@@ -43,7 +43,7 @@ export const SOLUTIONS = [
     description:
       "Home sprays, difusores e produtos para manter a conexão emocional com a fragrância no cotidiano.",
     detail:
-      "Formatos pensados para integrar aroma, cuidado e presença visual aos diferentes ambientes da casa.",
+      "Frascos que ficam à vista: na sala, no lavabo e na bancada.",
     image: "/images/institucional/perfumaria-ambientes.jpg",
     alt: "Difusor e sabonete líquido EMIDÊ em composição de madeira clara",
   },
@@ -133,6 +133,14 @@ export const SEGMENTS = [
   "Residências",
 ];
 
+/**
+ * TODO(editorial): os três nomes vão ao ar por decisão da marca, mas a
+ * autorização de uso ainda não está documentada — Michael Kors é o caso mais
+ * exposto. Enquanto a autorização não chegar, nada de logotipo, foto de loja ou
+ * depoimento: o texto de desafio/solução é o limite acordado. Para anonimizar,
+ * troque `client` pelo segmento ("Concessionária de veículos") sem mexer no
+ * resto. Ver docs/CONTEUDO-INSTITUCIONAL.md.
+ */
 export const CASES = [
   {
     client: "Doin Motors",

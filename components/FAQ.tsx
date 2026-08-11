@@ -4,6 +4,11 @@ import { useState } from "react";
 import { Plus } from "@phosphor-icons/react";
 
 const ITEMS = [
+  // TODO(editorial): "hipoalergênica" é alegação regulada e "consumo comparável
+  // a um roteador" é comparação sem fonte. Ambas estão atribuídas à
+  // especificação da EMIDÊ, não afirmadas pelo site, até a validação técnica
+  // descrita em docs/CONTEUDO-INSTITUCIONAL.md. Só remova a atribuição com o
+  // laudo ou a ficha técnica em mãos.
   {
     id: "alergia",
     question: "O cheiro pode causar alergia?",
@@ -54,7 +59,7 @@ export function FAQ() {
                 onClick={() => setOpenId(isOpen ? null : item.id)}
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className="flex w-full items-center justify-between gap-6 py-7 text-left font-sans text-lg uppercase tracking-[0.025em]"
+                className="flex w-full items-center justify-between gap-6 py-7 text-left text-lg uppercase tracking-[0.025em]"
               >
                 <span>
                   {item.question}

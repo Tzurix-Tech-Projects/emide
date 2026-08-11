@@ -80,6 +80,12 @@ const organizationSchema = {
   sameAs: [INSTAGRAM_URL],
 };
 
+/** O carrinho só existe com a loja ligada; o institucional não carrega o Context. */
+function StoreShell({ children }: { children: React.ReactNode }) {
+  if (!STORE_ENABLED) return <>{children}</>;
+  return <CartProvider>{children}</CartProvider>;
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -96,26 +102,15 @@ export default function RootLayout({
           }}
         />
         <Providers>
-          {STORE_ENABLED ? (
-            <CartProvider>
-              <a href="#conteudo" className="skip-link">
-                Ir para o conteúdo
-              </a>
-              <Header />
-              <main id="conteudo">{children}</main>
-              <Footer />
-              <CartDrawer />
-            </CartProvider>
-          ) : (
-            <>
-              <a href="#conteudo" className="skip-link">
-                Ir para o conteúdo
-              </a>
-              <Header />
-              <main id="conteudo">{children}</main>
-              <Footer />
-            </>
-          )}
+          <StoreShell>
+            <a href="#conteudo" className="skip-link">
+              Ir para o conteúdo
+            </a>
+            <Header />
+            <main id="conteudo">{children}</main>
+            <Footer />
+            {STORE_ENABLED && <CartDrawer />}
+          </StoreShell>
         </Providers>
       </body>
     </html>

@@ -1,10 +1,10 @@
 import localFont from "next/font/local";
 
 /**
- * Arquivo Hermione recebido. A copia atual identifica-se internamente como
- * HERMIONE-DEMO e nao possui cobertura suficiente para textos em portugues.
- * Seu uso fica restrito a titulos em caixa alta; a Articulat cobre os
- * caracteres acentuados que nao existem no arquivo.
+ * O arquivo Hermione entregue identifica-se como HERMIONE-DEMO e cobre apenas
+ * A-Z maiúsculo, sem acentuação. Por isso ele não é fonte de título: entra
+ * ponto a ponto pelo componente DisplayAccent. Sem preload — baixar em toda
+ * página um arquivo que só aparece em trechos marcados custa mais do que rende.
  */
 export const hermione = localFont({
   src: "../public/fonts/Hermione.woff2",
@@ -12,7 +12,7 @@ export const hermione = localFont({
   display: "swap",
   weight: "400",
   style: "normal",
-  preload: true,
+  preload: false,
   adjustFontFallback: false,
 });
 

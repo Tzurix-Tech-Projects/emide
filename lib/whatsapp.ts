@@ -12,7 +12,13 @@ export const HAS_WHATSAPP_NUMBER =
   /^\d{12,13}$/.test(WHATSAPP_NUMBER) &&
   !PLACEHOLDER_NUMBERS.has(WHATSAPP_NUMBER);
 
-if (!HAS_WHATSAPP_NUMBER && process.env.NODE_ENV !== "production") {
+// Só no servidor: o aviso é para quem está configurando o ambiente, não para
+// o console de quem visita o site em desenvolvimento.
+if (
+  !HAS_WHATSAPP_NUMBER &&
+  process.env.NODE_ENV !== "production" &&
+  typeof window === "undefined"
+) {
   console.warn(
     "NEXT_PUBLIC_WHATSAPP_NUMBER está ausente ou ainda usa um valor de exemplo."
   );

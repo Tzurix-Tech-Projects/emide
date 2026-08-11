@@ -33,7 +33,7 @@ export default async function LojaPage() {
       <section className="pb-16">
         <div className="wrap">
           <span className="eyebrow">A coleção completa</span>
-          <h1 className="my-5 text-4xl font-normal md:text-6xl">
+          <h1 className="my-5 text-display-xl">
             A loja EMIDÊ.
           </h1>
           <p className="max-w-[520px] text-lg text-ink">

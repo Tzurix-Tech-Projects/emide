@@ -42,7 +42,10 @@ export default async function Home() {
         <div className="wrap grid grid-cols-1 items-center gap-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-24">
           <Reveal direction="left">
             <div className="relative aspect-[4/5] overflow-hidden bg-paper shadow-[0_24px_70px_-48px_rgba(29,29,27,0.5)]">
-              <div className="absolute inset-x-0 top-0 z-10 h-2 bg-gradient-to-r from-gold-dark via-gold to-gold-light" />
+              <div
+                className="absolute inset-x-0 top-0 z-10 h-2 bg-gold-dark"
+                aria-hidden="true"
+              />
               <Image
                 src="/images/institucional/sobre-emide.jpg"
                 alt="Difusor e sabonete líquido EMIDÊ em uma composição de madeira clara"
@@ -59,19 +62,19 @@ export default async function Home() {
 
           <Reveal delay={0.1} direction="right">
             <span className="eyebrow">O que fazemos</span>
-            <h2 className="my-6 text-3xl font-normal sm:text-4xl md:text-5xl">
-              Transformamos a essência da sua marca em uma experiência memorável
+            <h2 className="my-6 text-display-lg">
+              Uma marca também se reconhece pelo cheiro
             </h2>
             <div className="max-w-[650px] space-y-5 text-base text-ink">
               <p>
-                Criamos identidades olfativas que traduzem a personalidade e os
-                valores de cada marca, fortalecendo a experiência do cliente e
-                construindo conexões emocionais que permanecem na memória.
+                Criamos identidades olfativas a partir da personalidade e dos
+                valores de cada marca. O aroma entra na identidade junto com o
+                logotipo, a fachada e o atendimento.
               </p>
               <p>
-                Mais do que aromatizar ambientes, desenvolvemos estratégias
-                sensoriais capazes de comunicar posicionamento, qualidade e
-                exclusividade.
+                O trabalho não termina na escolha da essência: dimensionamos o
+                equipamento, definimos a intensidade e acompanhamos a
+                implantação no ambiente.
               </p>
             </div>
             <div className="mt-10 border-l-2 border-gold-dark pl-6">
@@ -88,8 +91,8 @@ export default async function Home() {
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-24">
             <Reveal direction="left">
               <span className="eyebrow">Como fazemos</span>
-              <h2 className="my-6 text-3xl font-normal sm:text-4xl md:text-5xl">
-                Tecnologia, estratégia e personalização
+              <h2 className="my-6 text-display-lg">
+                O equipamento certo para o tamanho do ambiente
               </h2>
               <div className="max-w-[650px] space-y-5 text-base text-ink">
                 <p>
@@ -128,14 +131,15 @@ export default async function Home() {
                   sizes="(max-width: 1023px) 92vw, 40vw"
                   className="object-cover"
                 />
+                {/* O degradê existe para a legenda ter contraste sobre a foto.
+                    A legenda é conteúdo e continua exposta ao leitor de tela. */}
                 <div
-                  className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/70 to-transparent px-7 pb-7 pt-24 text-paper"
                   aria-hidden="true"
-                >
-                  <p className="text-xs uppercase tracking-[0.18em] text-gold-light">
-                    Controle preciso para cada ambiente
-                  </p>
-                </div>
+                  className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal/75 to-transparent"
+                />
+                <p className="absolute inset-x-0 bottom-0 px-7 pb-7 text-xs uppercase tracking-[0.18em] text-gold-light">
+                  Intensidade e horários controlados por aplicativo
+                </p>
               </div>
             </Reveal>
           </div>
@@ -143,8 +147,8 @@ export default async function Home() {
           <div className="mt-28 border-t border-line pt-20 md:mt-36 md:pt-24">
             <Reveal className="mb-14 max-w-[720px]">
               <span className="eyebrow">Soluções da EMIDÊ</span>
-              <h2 className="my-5 text-3xl font-normal sm:text-4xl md:text-5xl">
-                Estratégias olfativas para empresas, marcas e residências
+              <h2 className="my-5 text-display-md">
+                Duas linhas: uma para o negócio, outra para casa
               </h2>
             </Reveal>
 
@@ -163,7 +167,7 @@ export default async function Home() {
                     </div>
                     <div className="flex flex-1 flex-col p-8 sm:p-10">
                       <span className="eyebrow">{solution.eyebrow}</span>
-                      <h3 className="mb-4 mt-5 text-2xl md:text-3xl">
+                      <h3 className="mb-4 mt-5 text-display-sm">
                         {solution.title}
                       </h3>
                       <p className="mb-4 text-base text-ink">
@@ -195,13 +199,13 @@ export default async function Home() {
         <div className="wrap">
           <Reveal className="mb-16 max-w-[760px]">
             <span className="eyebrow">O impacto do marketing olfativo</span>
-            <h2 className="my-6 text-3xl font-normal text-paper sm:text-4xl md:text-5xl">
-              Uma experiência que influencia percepção, comportamento e decisão
+            <h2 className="my-6 text-display-lg text-paper">
+              Por que o aroma pesa na leitura de uma marca
             </h2>
             <p className="max-w-[680px] text-base text-paper/75">
-              O marketing olfativo não é apenas um detalhe decorativo. É uma
-              ferramenta estratégica capaz de orientar a leitura emocional de um
-              espaço e a maneira como o público percebe uma marca.
+              Quem entra em um ambiente registra o aroma sem precisar pensar
+              nele. É esse registro que a EMIDÊ trabalha: a atmosfera do espaço
+              e a lembrança que fica dele.
             </p>
           </Reveal>
 
@@ -212,7 +216,7 @@ export default async function Home() {
                   <span className="text-xs tracking-[0.18em] text-gold-light">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mb-5 mt-5 text-2xl text-paper">
+                  <h3 className="mb-5 mt-5 text-display-sm text-paper">
                     {impact.title}
                   </h3>
                   <p className="text-sm text-paper/70">{impact.description}</p>
@@ -235,17 +239,20 @@ export default async function Home() {
                   sizes="(max-width: 1023px) 92vw, 40vw"
                   className="object-cover"
                 />
-                <div className="absolute bottom-0 left-0 h-2 w-2/3 bg-gradient-to-r from-gold-dark to-gold-light" />
+                <div
+                  className="absolute bottom-0 left-0 h-2 w-2/3 bg-gold-dark"
+                  aria-hidden="true"
+                />
               </div>
             </Reveal>
 
             <Reveal delay={0.1} direction="right">
               <span className="eyebrow">Fragrâncias autorais</span>
-              <h2 className="my-6 text-3xl font-normal sm:text-4xl md:text-5xl">
+              <h2 className="my-6 text-display-lg">
                 A assinatura da sua marca
               </h2>
               <div className="max-w-[660px] space-y-5 text-base text-ink">
-                <p>Não trabalhamos apenas com cheiros prontos.</p>
+                <p>Trabalhamos além do catálogo pronto.</p>
                 <p>
                   Criamos uma pirâmide olfativa exclusiva que traduz a identidade,
                   a personalidade e os objetivos da sua marca ou do seu projeto
@@ -274,8 +281,8 @@ export default async function Home() {
           <div className="mt-28 border-t border-line pt-20 md:mt-36 md:pt-24">
             <Reveal className="mb-14 max-w-[720px]">
               <span className="eyebrow">Processo criativo</span>
-              <h2 className="my-5 text-3xl font-normal sm:text-4xl md:text-5xl">
-                Como criamos uma fragrância exclusiva
+              <h2 className="my-5 text-display-md">
+                Do briefing ao frasco, em três etapas
               </h2>
             </Reveal>
 
@@ -286,7 +293,7 @@ export default async function Home() {
                     <span className="text-xs tracking-[0.18em] text-forest">
                       Etapa {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mb-5 mt-5 text-xl md:text-2xl">
+                    <h3 className="mb-5 mt-5 text-display-sm">
                       {stage.title}
                     </h3>
                     <p className="mb-7 text-sm text-ink">{stage.description}</p>
@@ -313,8 +320,8 @@ export default async function Home() {
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20">
             <Reveal>
               <span className="eyebrow">Produtos personalizados</span>
-              <h2 className="my-6 text-3xl font-normal sm:text-4xl md:text-5xl">
-                Sua marca presente em cada detalhe
+              <h2 className="my-6 text-display-lg">
+                Frasco, rótulo e fragrância com a sua marca
               </h2>
               <p className="mb-5 max-w-[600px] text-base text-ink">
                 Desenvolvemos produtos personalizados com a identidade visual e a
@@ -366,8 +373,8 @@ export default async function Home() {
               <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-8">
                 <div className="max-w-[620px]">
                   <span className="eyebrow">Loja EMIDÊ</span>
-                  <h2 className="mt-5 text-3xl font-normal md:text-5xl">
-                    Produtos para levar a experiência com você
+                  <h2 className="mt-5 text-display-md">
+                    Difusores, sprays e lavabo para comprar agora
                   </h2>
                 </div>
                 <Link href="/loja" className="btn btn-outline">
@@ -388,8 +395,8 @@ export default async function Home() {
         <div className="wrap grid grid-cols-1 gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-24">
           <Reveal>
             <span className="eyebrow">Segmentos atendidos</span>
-            <h2 className="my-5 text-3xl font-normal md:text-5xl">
-              Inteligência olfativa para diferentes experiências
+            <h2 className="my-5 text-display-lg">
+              Cada segmento pede uma leitura diferente
             </h2>
             <p className="max-w-[520px] text-base text-ink">
               Cada projeto considera o comportamento do público, as dimensões do
@@ -415,12 +422,12 @@ export default async function Home() {
         <div className="wrap">
           <Reveal className="mb-16 max-w-[720px]">
             <span className="eyebrow">Cases de sucesso</span>
-            <h2 className="my-5 text-3xl font-normal sm:text-4xl md:text-5xl">
-              Estratégia aplicada a desafios reais
+            <h2 className="my-5 text-display-lg">
+              Três projetos, três problemas diferentes
             </h2>
             <p className="text-base text-ink">
-              Projetos para diferentes segmentos mostram como identidade,
-              tecnologia e implantação técnica trabalham juntas.
+              Uma concessionária, um hospital veterinário e uma loja de moda.
+              Em cada um, o ponto de partida foi um problema do próprio espaço.
             </p>
           </Reveal>
 
@@ -431,7 +438,7 @@ export default async function Home() {
                   <span className="text-xs tracking-[0.18em] text-forest">
                     Case {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mb-8 mt-5 text-2xl">
+                  <h3 className="mb-8 mt-5 text-display-sm">
                     {caseItem.client}
                   </h3>
                   <div className="mb-7">
@@ -453,17 +460,17 @@ export default async function Home() {
 
           <Reveal className="on-dark mt-16 bg-forest px-7 py-12 text-paper sm:px-12 md:flex md:items-center md:justify-between md:gap-12">
             <div className="mb-8 max-w-[720px] md:mb-0">
-              <span className="eyebrow">Marcas que confiam na EMIDÊ</span>
-              <h2 className="mb-5 mt-4 text-2xl text-paper md:text-3xl">
-                Experiências memoráveis começam com uma estratégia coerente
+              <span className="eyebrow">Próximo projeto</span>
+              <h2 className="mb-5 mt-4 text-display-sm text-paper">
+                Conte qual é o ambiente. O resto começa daí.
               </h2>
               <p className="text-sm text-paper/75">
-                Empresas de diferentes segmentos utilizam a inteligência olfativa
-                para qualificar seus ambientes e fortalecer sua presença.
+                O diagnóstico parte da metragem, do fluxo de pessoas e do que
+                a marca quer que fique na lembrança de quem passa por ali.
               </p>
             </div>
             <div className="shrink-0">
-              <B2BQuoteButton label="Quero fazer parte dessas marcas" />
+              <B2BQuoteButton label="Falar sobre o meu ambiente" />
             </div>
           </Reveal>
         </div>
@@ -473,8 +480,8 @@ export default async function Home() {
         <div className="wrap">
           <Reveal className="mb-14 max-w-[640px]">
             <span className="eyebrow">Perguntas frequentes</span>
-            <h2 className="mt-5 text-3xl font-normal md:text-5xl">
-              Informação para decidir com segurança
+            <h2 className="mt-5 text-display-lg">
+              O que perguntam antes de fechar
             </h2>
           </Reveal>
           <FAQ />
@@ -485,16 +492,12 @@ export default async function Home() {
         <div className="wrap grid grid-cols-1 gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-24">
           <Reveal>
             <span className="eyebrow">Vamos conversar</span>
-            <h2 className="my-6 text-4xl font-normal text-paper md:text-6xl">
+            <h2 className="my-6 text-display-xl text-paper">
               Vamos desenhar a estratégia olfativa do seu próximo projeto?
             </h2>
-            <p className="mb-5 max-w-[680px] text-base text-paper/75">
-              Grandes negócios começam com um bom café e terminam com um aroma
-              inesquecível.
-            </p>
-            <p className="mb-10 max-w-[680px] text-base text-paper/75">
-              Transforme seu ambiente em uma experiência capaz de comunicar valor,
-              gerar conexão e permanecer na memória dos seus clientes.
+            <p className="mb-10 max-w-[680px] text-lead text-paper/80">
+              Conte o tipo de ambiente, a metragem aproximada e a cidade. A
+              partir disso montamos a proposta de fragrância e equipamento.
             </p>
             <div className="flex flex-wrap gap-3">
               <ContactButton label="Falar com um especialista" />

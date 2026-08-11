@@ -24,7 +24,7 @@ const config: Config = {
         ink: "#3F3F3B",
       },
       fontFamily: {
-        // Hermione só é aplicada a palavras sem acento por BrandText.
+        // Hermione entra só pelo componente DisplayAccent, nunca por padrão.
         display: [
           "var(--font-hermione)",
           "var(--font-articulat)",

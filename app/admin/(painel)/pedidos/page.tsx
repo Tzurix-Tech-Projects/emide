@@ -57,7 +57,7 @@ export default function AdminOrdersPage() {
 
   return (
     <div>
-      <h1 className="mb-8 text-3xl font-normal">Pedidos</h1>
+      <h1 className="mb-8 text-display-sm">Pedidos</h1>
 
       {orders.length === 0 ? (
         <p className="py-16 text-center text-ink">

@@ -8,14 +8,11 @@ import {
   buildContactUrl,
 } from "@/lib/whatsapp";
 
-type ActionButtonProps = {
-  label?: string;
-};
-
-/** Abre o WhatsApp com o briefing de aromatização profissional pré-preenchido. */
-export function B2BQuoteButton({
-  label = "Solicitar proposta",
-}: ActionButtonProps = {}) {
+/**
+ * Sem número configurado a ação não pode simplesmente sumir da página: ela cai
+ * no Instagram, que é o outro canal oficial, mantendo o texto do convite.
+ */
+function WhatsAppLink({ href, label }: { href: string; label: string }) {
   if (!HAS_WHATSAPP_NUMBER) {
     return (
       <a
@@ -32,7 +29,7 @@ export function B2BQuoteButton({
 
   return (
     <a
-      href={buildB2BUrl()}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className="btn btn-primary"
@@ -43,30 +40,11 @@ export function B2BQuoteButton({
   );
 }
 
-export function ContactButton({ label = "Falar no WhatsApp" }: ActionButtonProps = {}) {
-  if (!HAS_WHATSAPP_NUMBER) {
-    return (
-      <a
-        href={INSTAGRAM_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn btn-primary"
-      >
-        <InstagramLogo size={18} weight="light" aria-hidden="true" />
-        {label}
-      </a>
-    );
-  }
+/** Abre o WhatsApp com o briefing de aromatização profissional pré-preenchido. */
+export function B2BQuoteButton({ label = "Solicitar proposta" }: { label?: string } = {}) {
+  return <WhatsAppLink href={buildB2BUrl()} label={label} />;
+}
 
-  return (
-    <a
-      href={buildContactUrl()}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="btn btn-primary"
-    >
-      <WhatsappLogo size={18} weight="fill" aria-hidden="true" />
-      {label}
-    </a>
-  );
+export function ContactButton({ label = "Falar no WhatsApp" }: { label?: string } = {}) {
+  return <WhatsAppLink href={buildContactUrl()} label={label} />;
 }

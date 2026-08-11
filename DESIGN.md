@@ -12,7 +12,9 @@ permanece preservada no código e só volta ao ar após o backlog de produção.
 
 ## 2. Decisões que costumam ser revertidas por engano
 
-- **Hermione é obrigatória nos títulos.** O site é editorial, não um dashboard.
+- **Títulos são Articulat CF Light; a Hermione entra só por `DisplayAccent`.**
+  O arquivo entregue cobre apenas A-Z maiúsculo — ver seção 3. O site é
+  editorial, não um dashboard.
 - **Articulat CF Light é obrigatória no corpo e na interface.** Os arquivos
   licenciados estão em `public/fonts/`; não substituir por Inter, Sora ou
   outra família em produção.

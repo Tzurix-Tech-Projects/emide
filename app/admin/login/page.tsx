@@ -33,7 +33,7 @@ export default function AdminLoginPage() {
     <div className="flex min-h-[100dvh] items-center justify-center bg-mist px-6 pt-24">
       <div className="w-full max-w-[400px] bg-paper p-10">
         <span className="eyebrow">Área restrita</span>
-        <h1 className="mb-8 mt-3 text-3xl font-normal">Painel EMIDÊ</h1>
+        <h1 className="mb-8 mt-3 text-display-sm">Painel EMIDÊ</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <label className="block">

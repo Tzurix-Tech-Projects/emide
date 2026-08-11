@@ -114,7 +114,7 @@ export default async function ProductPage({
             <ProductPhoto images={product.images} alt={product.name} />
             <div className="flex flex-col justify-center">
               <span className="eyebrow">{categoryLabel(product.category)}</span>
-              <h1 className="my-4 text-4xl font-normal md:text-5xl">
+              <h1 className="my-4 text-display-lg">
                 {product.name}
               </h1>
               <p className="mb-6 max-w-[46ch] text-base text-ink">

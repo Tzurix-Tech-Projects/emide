@@ -45,8 +45,8 @@ export function Footer() {
               className="mb-5 h-auto w-[220px]"
             />
             <p className="max-w-[280px] text-sm">
-              Inteligência olfativa para transformar marcas e ambientes em
-              experiências memoráveis.
+              Fragrâncias autorais e aromatização profissional para marcas,
+              ambientes comerciais e residências.
             </p>
           </div>
 
@@ -100,6 +100,9 @@ export function Footer() {
           </div>
         </div>
 
+        {/* TODO(editorial): razão social e CNPJ entram aqui, ao lado do ©,
+            quando a marca informar. Também precisam ser adicionados ao
+            organizationSchema em app/layout.tsx (legalName e taxID). */}
         <div className="flex flex-wrap justify-between gap-3 border-t border-line pt-7 text-xs tracking-wide">
           <span>© {new Date().getFullYear()} EMIDÊ</span>
           <span>Todos os direitos reservados</span>

@@ -41,7 +41,8 @@ app/
   globals.css             Tokens de foco, ritmo de seção, botões e campos
 components/
   Header · Footer · Hero · ProductCard · CartDrawer
-  FAQ · Reveal · WhatsAppActions
+  FAQ · Reveal · ScrollProgress · WhatsAppActions
+  DisplayAccent           Marca o trecho de título que recebe a Hermione
 lib/
   products.ts             Leitura pública do catálogo
   admin.ts                Leitura e escrita do painel
@@ -49,6 +50,8 @@ lib/
   orders.ts               Gravação do pedido via RPC create_order
   whatsapp.ts             URLs wa.me e formatação de preço
   site.ts                 Nome, domínio e descrição do site
+  product-images.ts       Curadoria local das fotos do catálogo
+  use-gsap.ts · gsap.ts   Escopo, limpeza e tokens de animação
   institutional-content.ts Conteúdo estruturado de soluções, processo, segmentos e cases
 ```
 
@@ -74,7 +77,8 @@ proposta B2B.
 - **Fotos do catálogo**: curadoria dos oito SKUs em `public/produtos/`, com
   capa e galeria em WebP/AVIF. O mapa de uso está em `lib/product-images.ts`.
 - **Fontes**: Hermione e Articulat CF Light licenciadas em `public/fonts/` e
-  carregadas localmente por `app/fonts.ts`.
+  carregadas localmente por `app/fonts.ts`. Títulos e corpo saem da Articulat;
+  a Hermione cobre só A-Z maiúsculo e entra por `DisplayAccent`, sem preload.
 - **Social**: prévia 1200×630 em `public/brand/emide-open-graph.png`.
 
 ## Paleta
@@ -92,6 +96,11 @@ proposta B2B.
 > branco e como botão com texto branco. Por isso ações e texto funcional sobre
 > fundo claro usam `forest`; dourados ficam em detalhes ou sobre fundos escuros
 > com contraste medido. Não mude sem medir novamente.
+
+## Dependências fixadas
+
+`package.json` força `postcss` e `sharp` em `overrides`: as versões que o Next
+resolve por padrão ainda carregam CVE aberta. Revisar a cada upgrade do Next.
 
 ## Verificações
 

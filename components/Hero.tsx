@@ -115,8 +115,8 @@ export function Hero() {
 
           <div data-hero-body data-reveal>
             <p className="mb-10 max-w-[36rem] text-lead text-paper/85">
-              Criamos identidades olfativas que traduzem a essência das marcas e
-              transformam ambientes em experiências memoráveis.
+              Criamos fragrâncias autorais e instalamos a aromatização que leva
+              cada uma delas ao ambiente certo.
             </p>
 
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4">

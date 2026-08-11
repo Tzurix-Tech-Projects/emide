@@ -98,7 +98,7 @@ export default function AdminProductsPage() {
   return (
     <div>
       <div className="mb-8 flex items-center justify-between">
-        <h1 className="text-3xl font-normal">Produtos</h1>
+        <h1 className="text-display-sm">Produtos</h1>
         <button
           onClick={openNew}
           className="btn bg-forest text-paper hover:bg-gold"
@@ -195,7 +195,7 @@ function ProductForm({
       onSubmit={handleSubmit}
       className="mb-10 grid grid-cols-1 gap-4 border border-line bg-paper p-6 md:grid-cols-2"
     >
-      <h2 className="font-display text-xl md:col-span-2">
+      <h2 className="text-display-sm md:col-span-2">
         {form.id ? "Editar produto" : "Novo produto"}
       </h2>
 

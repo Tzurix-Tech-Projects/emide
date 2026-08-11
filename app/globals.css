@@ -29,7 +29,10 @@
   }
   h1, h2, h3, h4 {
     @apply font-sans font-light;
-    line-height: 1.1;
+    /* Piso de entrelinha para caixa alta em português: abaixo de 1.12 o Ê e o
+       Ç encostam na linha de cima. Os tokens text-display-* sobrescrevem com
+       o valor exato de cada corpo. */
+    line-height: 1.14;
     letter-spacing: 0.025em;
     text-transform: uppercase;
     /* Distribui as linhas em vez de deixar uma palavra órfã na última. */
@@ -172,7 +175,10 @@
   }
 }
 
-/* Fundo neutro no lugar da foto enquanto o produto não tem imagem. */
+/* Fundo neutro no lugar da foto enquanto o produto não tem imagem. Neutro
+   mesmo: um bloco dourado no lugar da foto lê como escolha de arte, não como
+   ausência, e ainda concorre com o dourado usado como acento. */
 .photo-fallback {
-  background: linear-gradient(135deg, #e6d14c 0%, #d5a72c 48%, #ab7311 100%);
+  background-color: theme(colors.mist);
+  box-shadow: inset 0 0 0 1px theme(colors.line);
 }
